@@ -9,6 +9,7 @@ yarn-error.log*
 # Dependency directories
 node_modules/
 dist/
+craft/
 
 # Temporary files and directories
 craftcms-db.sql
