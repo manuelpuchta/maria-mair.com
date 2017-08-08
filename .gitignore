@@ -12,7 +12,7 @@ dist/
 craft/
 
 # Temporary files and directories
-craftcms-db.sql
+craftcms-dump.sql
 
 # Auth files
 .ftppass
