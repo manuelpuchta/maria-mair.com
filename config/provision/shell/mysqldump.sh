@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# create wordpress database dump
+# create craftcms database dump
 function create_mysqldump {
-    echo -e "Create database dump: craftcms-dump.sql."
+    echo -e "\033[33;36mCreate database dump: craftcms-dump.sql"
     mysqldump -u root -pvagrant craftcms > /vagrant/craftcms-dump.sql
 }
 
