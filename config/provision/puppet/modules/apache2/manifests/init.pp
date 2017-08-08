@@ -47,13 +47,4 @@ class apache2::install {
     target  => '/etc/apache2/mods-available/rewrite.load',
   }
 
-  
-  #file { '/etc/php5/conf.d/mcrypt.ini':
-  #  ensure => 'link',
-  #  target => '/etc/php5/mods-available/mcrypt.ini',
-  #  require => [
-  #    Package['php5-mcrypt']
-  #  ]
-  #}
-
 }

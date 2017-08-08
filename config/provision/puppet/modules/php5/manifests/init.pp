@@ -16,5 +16,5 @@ class php5::install {
 	]:
 	ensure => present,
 	}
-	
+
 }
