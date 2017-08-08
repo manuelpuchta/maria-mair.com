@@ -79,7 +79,7 @@ Craft cms login:
 #### Nice to know
 
 * If you're needing a password (for anything - including mysql, it should be `vagrant`)
-* get a fresh craftcms database dump into project root directory (ssh into server `vagrant ssh`, change into linked vagrant directory `cd /vagrant`): execute `mysqldump -u root -pvagrant craftcms > backup.sql`
+* get a fresh craftcms database dump into project root directory (ssh into server `vagrant ssh`, change into linked vagrant directory `cd /vagrant`): execute `mysqldump -u root -pvagrant craftcms > craftcms-dump.sql`
 * Craft cms init with: `user: janedoe`, `email: janedoe@localhost.wtf` and `password: vagrant`.
 
 ### Frontend setup
