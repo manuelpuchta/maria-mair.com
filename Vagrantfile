@@ -20,8 +20,8 @@ Vagrant.configure("2") do |config|
     vb.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
   end
 
-  # config.trigger.before :destroy do
-  #   info "Run database backup script before destroying the VM."
-  #   run_remote  "bash /vagrant/config/provision/shell/mysqldump.sh"
-  # end
+  config.trigger.before :destroy do
+    info "Run database backup script before destroying the VM."
+    run_remote  "bash /vagrant/config/provision/shell/mysqldump.sh"
+  end
 end
