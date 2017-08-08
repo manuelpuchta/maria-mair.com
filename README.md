@@ -1,6 +1,7 @@
 # maria-mair.com
-Source code
+
+## Development server
+
+Run `vagrant up` to start the local environment and `vagrant destroy` to shut down the VM. 
 
 ## TODO
-
-- add and enable/link php5-mcrypt @ config/provision/puppet/modules/apache2/manifests/init.pp
