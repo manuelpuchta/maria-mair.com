@@ -82,18 +82,9 @@ Craft cms login:
 * get a fresh craftcms database dump into project root directory (ssh into server `vagrant ssh`, change into linked vagrant directory `cd /vagrant`): execute `mysqldump -u root -pvagrant craftcms > craftcms-dump.sql`
 * Craft cms init with: `user: janedoe`, `email: janedoe@localhost.wtf` and `password: vagrant`.
 
-### Frontend setup
-
-Install all npm dependencies:
+### Frontend development
 
 To get started with local development, run:
-
-```bash
-npm install
-```
-once.
-
-Start webpack compiler:
 
 ```bash
 npm start
