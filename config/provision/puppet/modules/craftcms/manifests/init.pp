@@ -60,17 +60,19 @@ class craftcms::install {
   # Copy a working config/db.php file for the craft installation
   file { '/vagrant/craft/config/db.php':
     source => 'puppet:///modules/craftcms/db.php',
-    require => Exec['untar-craftcms'],
+    require => Exec['untar-craftcms']
   }
 
   # Import current MySQL CraftCMS database
-  #file { '/tmp/craftcms-db.sql':
-  #  source => 'puppet:///modules/craftcms/craftcms-db.sql'
-  #}
+  file { '/tmp/craftcms-db.sql':
+    source => 'puppet:///modules/craftcms/craftcms-db.sql',
+    require => Exec['create-user']
+  }
 
-  #exec { 'load-db':
-  #  command => '/usr/bin/mysql -u craftcms -craftcms craftcms < /tmp/craftcms-db.sql && touch /home/vagrant/db-created',
-  #  creates => '/home/vagrant/db-created',
-  #}
+  exec { 'load-db':
+    command => '/usr/bin/mysql -u craftcms -pcraftcms craftcms < /tmp/craftcms-db.sql && touch /home/vagrant/db-created',
+    creates => '/home/vagrant/db-created',
+    require => Exec['create-user']
+  }
 
 }
