@@ -1,0 +1,25 @@
+{
+  "name": "maria-mair",
+  "version": "1.0.0",
+  "description": "Personal website maria-mair.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manuelpuchta/maria-mair.com.git"
+  },
+  "keywords": [
+    "craftcms",
+    "webpack",
+    "SCSS",
+    "ES6"
+  ],
+  "author": "Manue Puchta <hallo@manuelpuchta.de>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manuelpuchta/maria-mair.com/issues"
+  },
+  "homepage": "https://github.com/manuelpuchta/maria-mair.com#readme"
+}
