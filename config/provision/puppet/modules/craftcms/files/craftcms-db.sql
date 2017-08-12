@@ -76,7 +76,7 @@ CREATE TABLE `craft_assetfolders` (
   KEY `craft_assetfolders_sourceId_fk` (`sourceId`),
   CONSTRAINT `craft_assetfolders_sourceId_fk` FOREIGN KEY (`sourceId`) REFERENCES `craft_assetsources` (`id`) ON DELETE CASCADE,
   CONSTRAINT `craft_assetfolders_parentId_fk` FOREIGN KEY (`parentId`) REFERENCES `craft_assetfolders` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,6 +85,7 @@ CREATE TABLE `craft_assetfolders` (
 
 LOCK TABLES `craft_assetfolders` WRITE;
 /*!40000 ALTER TABLE `craft_assetfolders` DISABLE KEYS */;
+INSERT INTO `craft_assetfolders` VALUES (1,NULL,1,'Bilder','','2017-08-12 17:15:44','2017-08-12 17:15:44','9f08331c-abc0-4e05-91cd-a9ac00edf77d'),(2,NULL,NULL,'Temporary source',NULL,'2017-08-12 17:15:50','2017-08-12 17:15:50','0068f79f-9273-44ac-b35b-64403cd666c0'),(3,2,NULL,'user_1','user_1/','2017-08-12 17:15:50','2017-08-12 17:15:50','d92c75d9-4b9e-43c0-8c8e-5ca2c146c377'),(4,3,NULL,'field_15','user_1/field_15/','2017-08-12 17:15:51','2017-08-12 17:15:51','f53954b9-e3c0-4e80-9020-0b6d25031e0d');
 /*!40000 ALTER TABLE `craft_assetfolders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,7 +146,7 @@ CREATE TABLE `craft_assetsources` (
   UNIQUE KEY `craft_assetsources_handle_unq_idx` (`handle`),
   KEY `craft_assetsources_fieldLayoutId_fk` (`fieldLayoutId`),
   CONSTRAINT `craft_assetsources_fieldLayoutId_fk` FOREIGN KEY (`fieldLayoutId`) REFERENCES `craft_fieldlayouts` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -154,6 +155,7 @@ CREATE TABLE `craft_assetsources` (
 
 LOCK TABLES `craft_assetsources` WRITE;
 /*!40000 ALTER TABLE `craft_assetsources` DISABLE KEYS */;
+INSERT INTO `craft_assetsources` VALUES (1,'Bilder','bilder','Local','{\"path\":\"images\\/\",\"publicURLs\":\"1\",\"url\":\"http:\\/\\/development.maria-mair.com\\/images\\/\"}',1,9,'2017-08-12 17:15:44','2017-08-12 17:48:07','89a309ae-e882-40d5-8c89-bafd0f7c1f59');
 /*!40000 ALTER TABLE `craft_assetsources` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -338,7 +340,17 @@ CREATE TABLE `craft_content` (
   `elementId` int(11) NOT NULL,
   `locale` char(12) COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `field_body` text COLLATE utf8_unicode_ci,
+  `field_dieLektorin` text COLLATE utf8_unicode_ci,
+  `field_dieLektorinText` text COLLATE utf8_unicode_ci,
+  `field_lektorat` text COLLATE utf8_unicode_ci,
+  `field_lektoratText` text COLLATE utf8_unicode_ci,
+  `field_korrektorat` text COLLATE utf8_unicode_ci,
+  `field_korrektoratText` text COLLATE utf8_unicode_ci,
+  `field_uebersetzung` text COLLATE utf8_unicode_ci,
+  `field_uebersetzungText` text COLLATE utf8_unicode_ci,
+  `field_autor` text COLLATE utf8_unicode_ci,
+  `field_ueberschrift` text COLLATE utf8_unicode_ci,
+  `field_bisherigeAuftraege` text COLLATE utf8_unicode_ci,
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
@@ -348,7 +360,7 @@ CREATE TABLE `craft_content` (
   KEY `craft_content_locale_fk` (`locale`),
   CONSTRAINT `craft_content_elementId_fk` FOREIGN KEY (`elementId`) REFERENCES `craft_elements` (`id`) ON DELETE CASCADE,
   CONSTRAINT `craft_content_locale_fk` FOREIGN KEY (`locale`) REFERENCES `craft_locales` (`locale`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -357,7 +369,7 @@ CREATE TABLE `craft_content` (
 
 LOCK TABLES `craft_content` WRITE;
 /*!40000 ALTER TABLE `craft_content` DISABLE KEYS */;
-INSERT INTO `craft_content` VALUES (1,1,'de',NULL,NULL,'2017-08-08 20:12:47','2017-08-08 20:12:47','ca1df5f3-70d7-411f-9d2d-55d6f9e9326c'),(2,2,'de','Welcome to Development.maria-mair.com!','<p>It’s true, this site doesn’t have a whole lot of content yet, but don’t worry. Our web developers have just installed the CMS, and they’re setting things up for the content editors this very moment. Soon Development.maria-mair.com will be an oasis of fresh perspectives, sharp analyses, and astute opinions that will keep you coming back again and again.</p>','2017-08-08 20:12:49','2017-08-08 20:12:49','60dcab3e-db61-4aa3-81a3-c0d33cf13cdd'),(3,3,'de','We just installed Craft!','<p>Craft is the CMS that’s powering Development.maria-mair.com. It’s beautiful, powerful, flexible, and easy-to-use, and it’s made by Pixel &amp; Tonic. We can’t wait to dive in and see what it’s capable of!</p><!--pagebreak--><p>This is even more captivating content, which you couldn’t see on the News index page because it was entered after a Page Break, and the News index template only likes to show the content on the first page.</p><p>Craft: a nice alternative to Word, if you’re making a website.</p>','2017-08-08 20:12:49','2017-08-08 20:12:49','13ba7539-8f56-450b-862e-08313e4b8619');
+INSERT INTO `craft_content` VALUES (1,1,'de',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2017-08-08 20:12:47','2017-08-12 16:03:22','ca1df5f3-70d7-411f-9d2d-55d6f9e9326c'),(2,2,'de','Maria Mair','Die Lektorin','<p>Geboren und aufgewachsen in der zweisprachigen norditalienischen Region Südtirol, habe ich 2008 das Nest verlassen und bin nach Wien gezogen, wo ich Germanistik und Vergleichende Literaturwissenschaft mit den Nebenfächern Kunstgeschichte und Theater-Film und Medienwissenschaften studiert habe. Die grauen Winter habe ich zurückgezogen in den kalten Altbauzimmern in Decken eingewickelt und stetig lesend überstanden. Verlassen habe ich diese hin und wieder um Pflichtveranstaltungen an der Uni zu besuchen, in Bibliotheken unter schlechten Lichtern zu lesen oder – neben den kulturell anderweitig wertvollen Kneipenbesuchen – das Theater, das Kino oder kleine Konzerte aufzusuchen. </p>\n<p>Die lesende Haltung und der dazugehörige Sessel sind fünf Jahre später mit mir nach Hamburg weitergezogen wo der Master in Deutschsprachige Literaturen folgte, in dessen Verlauf ich mich vor allem mit Erinnerungskultur auseinandergesetzt habe.</p>','Lektorat','<p>Ich suche nach guten Geschichten und nach jenen, die sie erzählen können. Schon in meiner wissenschaftlichen Arbeit hat mich stets die Faszination für Sprache und ihren Möglichkeiten der Vermittlung angetrieben: wie gelangen besondere Erfahrungen, Ideen, Bilder von einem Menschen auf Buchseiten und dann auch noch hin bis zu einem oder einer zeitlich und räumlich entfernten Leser*in? Diese Frage stellt man sich besonders schnell bei Grenzerfahrungen, aber auch bei schönen, aufregenden, packenden oder romantischen Geschichten. Ich will dabei der Schönheit der Sprache und jenen Menschen, die sowohl Talent für sie als auch die notwendige Disziplin zur literarischen Arbeit besitzen, als verborgene Zuarbeiterin, Korrektorin, Motivatorin, Gedankenordnerin und Disziplinatorin sowie Rechercheführerin beistehen. </p>\n<p>Neben dem literarischen Lektorat widme ich mich gerne und kompetent auch wissenschaftlichen Texten.</p>','Korrektorat','<p>Mein tägliches Brot verdiene ich sehr gerne auf der Suche nach Flüchtigkeitsfehler, Verständnisfallen und grammatischen Fehltritten. Ich korrigiere und redigiere Texte schnell und zuverlässig.</p>','Übersetzung','<p>Ich spreche, lese und schreibe fließend Italienisch und Englisch und kann so auch bei Übersetzungsfragen beistehen und Übersetzungen in das Deutsche übernehmen.</p>\n<p><em>Individuelle Preise divergieren je nach Texttyp und Anforderung und gibt es daher auf <a href=\"mailto:info@maria-mair.com\">Anfrage</a>.</em><br /></p>','Maria Mair','Bisherige Aufträge','<ul><li><strong>Stilistische Redaktion</strong> für SnowFyre. Elfe aus Eis von Amy Erin Thyndal, erschienen bei Dark Diamonds, einem E-Book-Label des Carlsen Verlags für New Adult Fantasy. <a href=\"https://www.carlsen.de/epub/snowfyre-elfe-aus-eis/83006#\">https://www.carlsen.de/epub/snowfyre-elfe-aus-eis/83006#</a></li><li><strong>Lektorat</strong> (Inhalt und stilistische Redaktion, einschließlich Autorenkommunikation) für Winterzauber in New York von Julia K. Stein, erschienen als ePub bei Impress, einem Imprint des Carlsen Verlags für Paranormal Romance, Coming of Age und New Adult. <a href=\"https://www.carlsen.de/epub/winterzauber-in-new-york/84930\">https://www.carlsen.de/epub/wi...</a></li><li><strong>Korrektorat</strong> von Sachtexten für den Verlag quayou, der sich auf Business-Methoden konzentriert sowie Lektoratdienstleistungen für andere Formate anbietet – seit Februar 2017. <a href=\"https://quayou.de/\">https://quayou.de/</a></li><li><strong>Korrektorat</strong> verschiedener Artikel und Texte für die Technische Universität Wien – im Auftrag von Univ.Ass. Arch. Dipl.-Ing. Eva Mair. <a href=\"http://www.gbl.tuwien.ac.at/Archiv/personen.html?name=Eva_Mair\">http://www.gbl.tuwien.ac.at/Ar...</a></li><li><strong>Korrektorat</strong> verschiedener Artikel für die feministische Online-Plattform TRUST THE GIRLS. <a href=\"http://trustthegirls.org/2017/03/angezogen-und-angelogen/\">http://trustthegirls.org/2017/...</a></li><li>Kleinere Textarbeiten, wie das <strong>Korrektorat</strong> von Drehbüchern, E-Mails, etc. und die Erstellung einer <strong>Pressemappe</strong>, für die Regisseurin Nathalie Borgers, der ich von April bis Juni 2013 assistiert habe. Diese Arbeit wurde mit dem Beginn der Arbeit an dem Dokumentarfilm Fang den Haider (2016) in ein Praktikum bei der Produktionsfirma kurt mayer film umgewandelt. <a href=\"http://dok.at/film/fang-den-haider/\">http://dok.at/film/fang-den-ha...</a></li><li><strong>Korrektorat</strong> für den Druck des Theaterstücks Polaroid Panoptikum, verfasst von Florian Scheimpflug, aufgeführt im April 2010 im Dschungel Wien.</li></ul>','2017-08-08 20:12:49','2017-08-12 18:03:24','60dcab3e-db61-4aa3-81a3-c0d33cf13cdd');
 /*!40000 ALTER TABLE `craft_content` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -445,7 +457,7 @@ CREATE TABLE `craft_elements` (
   KEY `craft_elements_type_idx` (`type`),
   KEY `craft_elements_enabled_idx` (`enabled`),
   KEY `craft_elements_archived_dateCreated_idx` (`archived`,`dateCreated`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -454,7 +466,7 @@ CREATE TABLE `craft_elements` (
 
 LOCK TABLES `craft_elements` WRITE;
 /*!40000 ALTER TABLE `craft_elements` DISABLE KEYS */;
-INSERT INTO `craft_elements` VALUES (1,'User',1,0,'2017-08-08 20:12:47','2017-08-08 20:12:47','04fd3da1-be0b-4f7c-b054-a4ca6aa9132f'),(2,'Entry',1,0,'2017-08-08 20:12:49','2017-08-08 20:12:49','16c15471-f7fe-42b7-925f-4e848de6441d'),(3,'Entry',1,0,'2017-08-08 20:12:49','2017-08-08 20:12:49','378b0037-e913-43aa-b33f-ad8d6ba0ff1d');
+INSERT INTO `craft_elements` VALUES (1,'User',1,0,'2017-08-08 20:12:47','2017-08-12 16:03:22','04fd3da1-be0b-4f7c-b054-a4ca6aa9132f'),(2,'Entry',1,0,'2017-08-08 20:12:49','2017-08-12 18:03:24','16c15471-f7fe-42b7-925f-4e848de6441d');
 /*!40000 ALTER TABLE `craft_elements` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -492,7 +504,7 @@ CREATE TABLE `craft_elements_i18n` (
 
 LOCK TABLES `craft_elements_i18n` WRITE;
 /*!40000 ALTER TABLE `craft_elements_i18n` DISABLE KEYS */;
-INSERT INTO `craft_elements_i18n` VALUES (1,1,'de','',NULL,1,'2017-08-08 20:12:47','2017-08-08 20:12:47','5e0287af-7333-452c-a7ab-f09b5ca4e7fd'),(2,2,'de','homepage','__home__',1,'2017-08-08 20:12:49','2017-08-08 20:12:49','823d481c-6299-43f5-8274-ac340a9e5d86'),(3,3,'de','we-just-installed-craft','news/2017/we-just-installed-craft',1,'2017-08-08 20:12:49','2017-08-08 20:12:49','fb74526f-2277-4320-9e4b-60bab721b8d3');
+INSERT INTO `craft_elements_i18n` VALUES (1,1,'de','',NULL,1,'2017-08-08 20:12:47','2017-08-12 16:03:22','5e0287af-7333-452c-a7ab-f09b5ca4e7fd'),(2,2,'de','homepage','__home__',1,'2017-08-08 20:12:49','2017-08-12 18:03:24','823d481c-6299-43f5-8274-ac340a9e5d86');
 /*!40000 ALTER TABLE `craft_elements_i18n` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -564,7 +576,7 @@ CREATE TABLE `craft_entries` (
 
 LOCK TABLES `craft_entries` WRITE;
 /*!40000 ALTER TABLE `craft_entries` DISABLE KEYS */;
-INSERT INTO `craft_entries` VALUES (2,1,NULL,NULL,'2017-08-08 20:12:49',NULL,'2017-08-08 20:12:49','2017-08-08 20:12:49','16f9d870-484c-47c0-a949-36c2e52db81f'),(3,2,2,1,'2017-08-08 20:12:49',NULL,'2017-08-08 20:12:49','2017-08-08 20:12:49','81b5e86c-7531-47fb-ac84-6a59e793a866');
+INSERT INTO `craft_entries` VALUES (2,1,NULL,NULL,'2017-08-08 20:12:49',NULL,'2017-08-08 20:12:49','2017-08-12 18:03:24','16f9d870-484c-47c0-a949-36c2e52db81f');
 /*!40000 ALTER TABLE `craft_entries` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -644,7 +656,7 @@ CREATE TABLE `craft_entrytypes` (
 
 LOCK TABLES `craft_entrytypes` WRITE;
 /*!40000 ALTER TABLE `craft_entrytypes` DISABLE KEYS */;
-INSERT INTO `craft_entrytypes` VALUES (1,1,3,'Homepage','homepage',1,'Title',NULL,1,'2017-08-08 20:12:49','2017-08-08 20:12:49','71480dc7-afaf-4c7e-9263-06af64f8b50e'),(2,2,5,'News','news',1,'Titel',NULL,1,'2017-08-08 20:12:49','2017-08-08 20:12:49','ed1a89c5-6e32-41a4-9a22-efbd402ac0ab');
+INSERT INTO `craft_entrytypes` VALUES (1,1,10,'Homepage','homepage',1,'Title',NULL,1,'2017-08-08 20:12:49','2017-08-12 17:58:14','71480dc7-afaf-4c7e-9263-06af64f8b50e');
 /*!40000 ALTER TABLE `craft_entrytypes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -676,7 +688,7 @@ CREATE TABLE `craft_entryversions` (
   CONSTRAINT `craft_entryversions_creatorId_fk` FOREIGN KEY (`creatorId`) REFERENCES `craft_users` (`id`) ON DELETE SET NULL,
   CONSTRAINT `craft_entryversions_entryId_fk` FOREIGN KEY (`entryId`) REFERENCES `craft_entries` (`id`) ON DELETE CASCADE,
   CONSTRAINT `craft_entryversions_sectionId_fk` FOREIGN KEY (`sectionId`) REFERENCES `craft_sections` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -685,7 +697,7 @@ CREATE TABLE `craft_entryversions` (
 
 LOCK TABLES `craft_entryversions` WRITE;
 /*!40000 ALTER TABLE `craft_entryversions` DISABLE KEYS */;
-INSERT INTO `craft_entryversions` VALUES (1,2,1,1,'de',1,NULL,'{\"typeId\":\"1\",\"authorId\":null,\"title\":\"Homepage\",\"slug\":\"homepage\",\"postDate\":1502223169,\"expiryDate\":null,\"enabled\":1,\"parentId\":null,\"fields\":[]}','2017-08-08 20:12:49','2017-08-08 20:12:49','46a3e130-b6ca-474b-ba4c-3b307b153b14'),(2,2,1,1,'de',2,NULL,'{\"typeId\":null,\"authorId\":null,\"title\":\"Welcome to Development.maria-mair.com!\",\"slug\":\"homepage\",\"postDate\":1502223169,\"expiryDate\":null,\"enabled\":\"1\",\"parentId\":null,\"fields\":{\"1\":\"<p>It\\u2019s true, this site doesn\\u2019t have a whole lot of content yet, but don\\u2019t worry. Our web developers have just installed the CMS, and they\\u2019re setting things up for the content editors this very moment. Soon Development.maria-mair.com will be an oasis of fresh perspectives, sharp analyses, and astute opinions that will keep you coming back again and again.<\\/p>\"}}','2017-08-08 20:12:49','2017-08-08 20:12:49','c2c8c06b-35c2-452a-8326-cb40ab30a795'),(3,3,2,1,'de',1,NULL,'{\"typeId\":\"2\",\"authorId\":\"1\",\"title\":\"We just installed Craft!\",\"slug\":\"we-just-installed-craft\",\"postDate\":1502223169,\"expiryDate\":null,\"enabled\":1,\"parentId\":null,\"fields\":[]}','2017-08-08 20:12:49','2017-08-08 20:12:49','0f0774a7-1370-4420-9c2e-a6efcbf4e9e6');
+INSERT INTO `craft_entryversions` VALUES (1,2,1,1,'de',1,NULL,'{\"typeId\":\"1\",\"authorId\":null,\"title\":\"Homepage\",\"slug\":\"homepage\",\"postDate\":1502223169,\"expiryDate\":null,\"enabled\":1,\"parentId\":null,\"fields\":[]}','2017-08-08 20:12:49','2017-08-08 20:12:49','46a3e130-b6ca-474b-ba4c-3b307b153b14'),(2,2,1,1,'de',2,NULL,'{\"typeId\":null,\"authorId\":null,\"title\":\"Welcome to Development.maria-mair.com!\",\"slug\":\"homepage\",\"postDate\":1502223169,\"expiryDate\":null,\"enabled\":\"1\",\"parentId\":null,\"fields\":{\"1\":\"<p>It\\u2019s true, this site doesn\\u2019t have a whole lot of content yet, but don\\u2019t worry. Our web developers have just installed the CMS, and they\\u2019re setting things up for the content editors this very moment. Soon Development.maria-mair.com will be an oasis of fresh perspectives, sharp analyses, and astute opinions that will keep you coming back again and again.<\\/p>\"}}','2017-08-08 20:12:49','2017-08-08 20:12:49','c2c8c06b-35c2-452a-8326-cb40ab30a795'),(4,2,1,1,'de',3,'','{\"typeId\":null,\"authorId\":null,\"title\":\"Maria Mair\",\"slug\":\"homepage\",\"postDate\":1502223169,\"expiryDate\":null,\"enabled\":1,\"parentId\":null,\"fields\":{\"1\":\"<p>It\\u2019s true, this site doesn\\u2019t have a whole lot of content yet, but don\\u2019t worry. Our web developers have just installed the CMS, and they\\u2019re setting things up for the content editors this very moment. Soon Development.maria-mair.com will be an oasis of fresh perspectives, sharp analyses, and astute opinions that will keep you coming back again and again.<\\/p>\"}}','2017-08-12 16:29:15','2017-08-12 16:29:15','8ffea636-e78e-41fa-878f-23921b0eea18'),(5,2,1,1,'de',4,'','{\"typeId\":null,\"authorId\":null,\"title\":\"Maria Mair\",\"slug\":\"homepage\",\"postDate\":1502223169,\"expiryDate\":null,\"enabled\":1,\"parentId\":null,\"fields\":{\"14\":\"Hallo\",\"15\":\"\",\"17\":\"\",\"6\":\"\",\"7\":\"\",\"10\":\"\",\"11\":\"\",\"8\":\"\",\"9\":\"\",\"16\":\"\",\"12\":\"\",\"13\":\"\"}}','2017-08-12 17:47:04','2017-08-12 17:47:04','aa3121b5-4d6b-4494-a1b2-4575a30d8fd6'),(6,2,1,1,'de',5,'','{\"typeId\":null,\"authorId\":null,\"title\":\"Maria Mair\",\"slug\":\"homepage\",\"postDate\":1502223169,\"expiryDate\":null,\"enabled\":1,\"parentId\":null,\"fields\":{\"14\":\"Maria Mair\",\"15\":\"\",\"17\":\"\",\"6\":\"Die Lektorin\",\"7\":\"<p>Geboren und aufgewachsen in der zweisprachigen norditalienischen Region S\\u00fcdtirol, habe ich 2008 das Nest verlassen und bin nach Wien gezogen, wo ich Germanistik und Vergleichende Literaturwissenschaft mit den Nebenf\\u00e4chern Kunstgeschichte und Theater-Film und Medienwissenschaften studiert habe. Die grauen Winter habe ich zur\\u00fcckgezogen in den kalten Altbauzimmern in Decken eingewickelt und stetig lesend \\u00fcberstanden. Verlassen habe ich diese hin und wieder um Pflichtveranstaltungen an der Uni zu besuchen, in Bibliotheken unter schlechten Lichtern zu lesen oder \\u2013 neben den kulturell anderweitig wertvollen Kneipenbesuchen \\u2013 das Theater, das Kino oder kleine Konzerte aufzusuchen.&nbsp;<\\/p><p>Die lesende Haltung und der dazugeh\\u00f6rige Sessel sind f\\u00fcnf Jahre sp\\u00e4ter mit mir nach Hamburg weitergezogen wo der Master in Deutschsprachige Literaturen folgte, in dessen Verlauf ich mich vor allem mit Erinnerungskultur auseinandergesetzt habe.<\\/p>\",\"10\":\"\",\"11\":\"\",\"8\":\"\",\"9\":\"\",\"16\":\"\",\"12\":\"\",\"13\":\"\"}}','2017-08-12 17:57:46','2017-08-12 17:57:46','4a19ecae-c38c-4cb4-99ef-be4adeb39def'),(7,2,1,1,'de',6,'','{\"typeId\":null,\"authorId\":null,\"title\":\"Maria Mair\",\"slug\":\"homepage\",\"postDate\":1502223169,\"expiryDate\":null,\"enabled\":1,\"parentId\":null,\"fields\":{\"14\":\"Maria Mair\",\"15\":\"\",\"17\":\"\",\"6\":\"Die Lektorin\",\"7\":\"<p>Geboren und aufgewachsen in der zweisprachigen norditalienischen Region S\\u00fcdtirol, habe ich 2008 das Nest verlassen und bin nach Wien gezogen, wo ich Germanistik und Vergleichende Literaturwissenschaft mit den Nebenf\\u00e4chern Kunstgeschichte und Theater-Film und Medienwissenschaften studiert habe. Die grauen Winter habe ich zur\\u00fcckgezogen in den kalten Altbauzimmern in Decken eingewickelt und stetig lesend \\u00fcberstanden. Verlassen habe ich diese hin und wieder um Pflichtveranstaltungen an der Uni zu besuchen, in Bibliotheken unter schlechten Lichtern zu lesen oder \\u2013 neben den kulturell anderweitig wertvollen Kneipenbesuchen \\u2013 das Theater, das Kino oder kleine Konzerte aufzusuchen.&nbsp;<\\/p>\\r\\n<p>Die lesende Haltung und der dazugeh\\u00f6rige Sessel sind f\\u00fcnf Jahre sp\\u00e4ter mit mir nach Hamburg weitergezogen wo der Master in Deutschsprachige Literaturen folgte, in dessen Verlauf ich mich vor allem mit Erinnerungskultur auseinandergesetzt habe.<\\/p>\",\"10\":\"Korrektorat\",\"11\":\"<p>Mein t\\u00e4gliches Brot verdiene ich sehr gerne auf der Suche nach Fl\\u00fcchtigkeitsfehler, Verst\\u00e4ndnisfallen und grammatischen Fehltritten. Ich korrigiere und redigiere Texte schnell und zuverl\\u00e4ssig.<\\/p>\",\"8\":\"Lektorat\",\"9\":\"<p>Ich suche nach guten Geschichten und nach jenen, die sie erz\\u00e4hlen k\\u00f6nnen. Schon in meiner wissenschaftlichen Arbeit hat mich stets die Faszination f\\u00fcr Sprache und ihren M\\u00f6glichkeiten der Vermittlung angetrieben: wie gelangen besondere Erfahrungen, Ideen, Bilder von einem Menschen auf Buchseiten und dann auch noch hin bis zu einem oder einer zeitlich und r\\u00e4umlich entfernten Leser*in? Diese Frage stellt man sich besonders schnell bei Grenzerfahrungen, aber auch bei sch\\u00f6nen, aufregenden, packenden oder romantischen Geschichten. Ich will dabei der Sch\\u00f6nheit der Sprache und jenen Menschen, die sowohl Talent f\\u00fcr sie als auch die notwendige Disziplin zur literarischen Arbeit besitzen, als verborgene Zuarbeiterin, Korrektorin, Motivatorin, Gedankenordnerin und Disziplinatorin sowie Recherchef\\u00fchrerin beistehen.&nbsp;<\\/p><p>Neben dem literarischen Lektorat widme ich mich gerne und kompetent auch wissenschaftlichen Texten.<\\/p>\",\"16\":\"\",\"12\":\"\\u00dcbersetzung\",\"13\":\"<p>Ich spreche, lese und schreibe flie\\u00dfend Italienisch und Englisch und kann so auch bei \\u00dcbersetzungsfragen beistehen und \\u00dcbersetzungen in das Deutsche \\u00fcbernehmen.<\\/p><p><em>Individuelle Preise divergieren je nach Texttyp und Anforderung und gibt es daher auf <a href=\\\"mailto:info@maria-mair.com\\\">Anfrage<\\/a>.<\\/em><br><\\/p>\"}}','2017-08-12 18:00:32','2017-08-12 18:00:32','0fd51669-04d0-45ae-bd82-fbeb0de24bd1'),(8,2,1,1,'de',7,'','{\"typeId\":null,\"authorId\":null,\"title\":\"Maria Mair\",\"slug\":\"homepage\",\"postDate\":1502223169,\"expiryDate\":null,\"enabled\":1,\"parentId\":null,\"fields\":{\"14\":\"Maria Mair\",\"15\":\"\",\"17\":\"<ul><li><strong>Stilistische Redaktion<\\/strong> f\\u00fcr SnowFyre. Elfe aus Eis von Amy Erin Thyndal, erschienen bei Dark Diamonds, einem E-Book-Label des Carlsen Verlags f\\u00fcr New Adult Fantasy. <a href=\\\"https:\\/\\/www.carlsen.de\\/epub\\/snowfyre-elfe-aus-eis\\/83006#\\\">https:\\/\\/www.carlsen.de\\/epub\\/snowfyre-elfe-aus-eis\\/83006#<\\/a><\\/li><li><strong>Lektorat<\\/strong> (Inhalt und stilistische Redaktion, einschlie\\u00dflich Autorenkommunikation) f\\u00fcr Winterzauber in New York von Julia K. Stein, erschienen als ePub bei Impress, einem Imprint des Carlsen Verlags f\\u00fcr Paranormal Romance, Coming of Age und New Adult. <a href=\\\"https:\\/\\/www.carlsen.de\\/epub\\/winterzauber-in-new-york\\/84930\\\">https:\\/\\/www.carlsen.de\\/epub\\/wi...<\\/a><\\/li><li><strong>Korrektorat<\\/strong> von Sachtexten f\\u00fcr den Verlag quayou, der sich auf Business-Methoden konzentriert sowie Lektoratdienstleistungen f\\u00fcr andere Formate anbietet \\u2013 seit Februar 2017. <a href=\\\"https:\\/\\/quayou.de\\/\\\">https:\\/\\/quayou.de\\/<\\/a><\\/li><li><strong>Korrektorat<\\/strong> verschiedener Artikel und Texte f\\u00fcr die Technische Universit\\u00e4t Wien \\u2013 im Auftrag von Univ.Ass. Arch. Dipl.-Ing. Eva Mair. <a href=\\\"http:\\/\\/www.gbl.tuwien.ac.at\\/Archiv\\/personen.html?name=Eva_Mair\\\">http:\\/\\/www.gbl.tuwien.ac.at\\/Ar...<\\/a><\\/li><li><strong>Korrektorat<\\/strong> verschiedener Artikel f\\u00fcr die feministische Online-Plattform TRUST THE GIRLS. <a href=\\\"http:\\/\\/trustthegirls.org\\/2017\\/03\\/angezogen-und-angelogen\\/\\\">http:\\/\\/trustthegirls.org\\/2017\\/...<\\/a><\\/li><li>Kleinere Textarbeiten, wie das <strong>Korrektorat<\\/strong> von Drehb\\u00fcchern, E-Mails, etc. und die Erstellung einer <strong>Pressemappe<\\/strong>, f\\u00fcr die Regisseurin Nathalie Borgers, der ich von April bis Juni 2013 assistiert habe. Diese Arbeit wurde mit dem Beginn der Arbeit an dem Dokumentarfilm Fang den Haider (2016) in ein Praktikum bei der Produktionsfirma kurt mayer film umgewandelt. <a href=\\\"http:\\/\\/dok.at\\/film\\/fang-den-haider\\/\\\">http:\\/\\/dok.at\\/film\\/fang-den-ha...<\\/a><\\/li><li><strong>Korrektorat<\\/strong> fu\\u0308r den Druck des Theaterstu\\u0308cks Polaroid Panoptikum, verfasst von Florian Scheimpflug, aufgefu\\u0308hrt im April 2010 im Dschungel Wien.<\\/li><\\/ul>\",\"6\":\"Die Lektorin\",\"7\":\"<p>Geboren und aufgewachsen in der zweisprachigen norditalienischen Region S\\u00fcdtirol, habe ich 2008 das Nest verlassen und bin nach Wien gezogen, wo ich Germanistik und Vergleichende Literaturwissenschaft mit den Nebenf\\u00e4chern Kunstgeschichte und Theater-Film und Medienwissenschaften studiert habe. Die grauen Winter habe ich zur\\u00fcckgezogen in den kalten Altbauzimmern in Decken eingewickelt und stetig lesend \\u00fcberstanden. Verlassen habe ich diese hin und wieder um Pflichtveranstaltungen an der Uni zu besuchen, in Bibliotheken unter schlechten Lichtern zu lesen oder \\u2013 neben den kulturell anderweitig wertvollen Kneipenbesuchen \\u2013 das Theater, das Kino oder kleine Konzerte aufzusuchen.&nbsp;<\\/p>\\r\\n<p>Die lesende Haltung und der dazugeh\\u00f6rige Sessel sind f\\u00fcnf Jahre sp\\u00e4ter mit mir nach Hamburg weitergezogen wo der Master in Deutschsprachige Literaturen folgte, in dessen Verlauf ich mich vor allem mit Erinnerungskultur auseinandergesetzt habe.<\\/p>\",\"10\":\"Korrektorat\",\"11\":\"<p>Mein t\\u00e4gliches Brot verdiene ich sehr gerne auf der Suche nach Fl\\u00fcchtigkeitsfehler, Verst\\u00e4ndnisfallen und grammatischen Fehltritten. Ich korrigiere und redigiere Texte schnell und zuverl\\u00e4ssig.<\\/p>\",\"8\":\"Lektorat\",\"9\":\"<p>Ich suche nach guten Geschichten und nach jenen, die sie erz\\u00e4hlen k\\u00f6nnen. Schon in meiner wissenschaftlichen Arbeit hat mich stets die Faszination f\\u00fcr Sprache und ihren M\\u00f6glichkeiten der Vermittlung angetrieben: wie gelangen besondere Erfahrungen, Ideen, Bilder von einem Menschen auf Buchseiten und dann auch noch hin bis zu einem oder einer zeitlich und r\\u00e4umlich entfernten Leser*in? Diese Frage stellt man sich besonders schnell bei Grenzerfahrungen, aber auch bei sch\\u00f6nen, aufregenden, packenden oder romantischen Geschichten. Ich will dabei der Sch\\u00f6nheit der Sprache und jenen Menschen, die sowohl Talent f\\u00fcr sie als auch die notwendige Disziplin zur literarischen Arbeit besitzen, als verborgene Zuarbeiterin, Korrektorin, Motivatorin, Gedankenordnerin und Disziplinatorin sowie Recherchef\\u00fchrerin beistehen.&nbsp;<\\/p>\\r\\n<p>Neben dem literarischen Lektorat widme ich mich gerne und kompetent auch wissenschaftlichen Texten.<\\/p>\",\"16\":\"Bisherige Auftr\\u00e4ge\",\"12\":\"\\u00dcbersetzung\",\"13\":\"<p>Ich spreche, lese und schreibe flie\\u00dfend Italienisch und Englisch und kann so auch bei \\u00dcbersetzungsfragen beistehen und \\u00dcbersetzungen in das Deutsche \\u00fcbernehmen.<\\/p>\\r\\n<p><em>Individuelle Preise divergieren je nach Texttyp und Anforderung und gibt es daher auf <a href=\\\"mailto:info@maria-mair.com\\\">Anfrage<\\/a>.<\\/em><br><\\/p>\"}}','2017-08-12 18:03:24','2017-08-12 18:03:24','0d2b1f08-e421-41b5-84e4-354d2c7fffbb');
 /*!40000 ALTER TABLE `craft_entryversions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -704,7 +716,7 @@ CREATE TABLE `craft_fieldgroups` (
   `uid` char(36) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `craft_fieldgroups_name_unq_idx` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -713,7 +725,7 @@ CREATE TABLE `craft_fieldgroups` (
 
 LOCK TABLES `craft_fieldgroups` WRITE;
 /*!40000 ALTER TABLE `craft_fieldgroups` DISABLE KEYS */;
-INSERT INTO `craft_fieldgroups` VALUES (1,'Default','2017-08-08 20:12:49','2017-08-08 20:12:49','a7ee775b-096b-4f31-9d49-71b23cc643c3');
+INSERT INTO `craft_fieldgroups` VALUES (2,'Über Maria','2017-08-12 16:33:19','2017-08-12 16:46:34','8d9177ce-3409-4533-832d-2629d2669137'),(3,'Maria Mair','2017-08-12 16:46:41','2017-08-12 16:46:41','3d78a6b8-eff0-49d6-90e6-bcda097839dd'),(4,'Bisherige Aufträge','2017-08-12 16:48:57','2017-08-12 16:48:57','5ec251a9-25d6-4168-9e00-66959776ab8e');
 /*!40000 ALTER TABLE `craft_fieldgroups` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -742,7 +754,7 @@ CREATE TABLE `craft_fieldlayoutfields` (
   CONSTRAINT `craft_fieldlayoutfields_fieldId_fk` FOREIGN KEY (`fieldId`) REFERENCES `craft_fields` (`id`) ON DELETE CASCADE,
   CONSTRAINT `craft_fieldlayoutfields_layoutId_fk` FOREIGN KEY (`layoutId`) REFERENCES `craft_fieldlayouts` (`id`) ON DELETE CASCADE,
   CONSTRAINT `craft_fieldlayoutfields_tabId_fk` FOREIGN KEY (`tabId`) REFERENCES `craft_fieldlayouttabs` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -751,7 +763,7 @@ CREATE TABLE `craft_fieldlayoutfields` (
 
 LOCK TABLES `craft_fieldlayoutfields` WRITE;
 /*!40000 ALTER TABLE `craft_fieldlayoutfields` DISABLE KEYS */;
-INSERT INTO `craft_fieldlayoutfields` VALUES (1,3,1,1,1,1,'2017-08-08 20:12:49','2017-08-08 20:12:49','3115f30f-49ad-4adf-a7fe-7d9537d32369'),(2,5,2,1,1,1,'2017-08-08 20:12:49','2017-08-08 20:12:49','cdb0b85f-9b19-49ac-a2ef-c9d37306b8c2'),(3,5,2,2,0,2,'2017-08-08 20:12:49','2017-08-08 20:12:49','04faedb0-babb-4255-9550-77a80bb79236');
+INSERT INTO `craft_fieldlayoutfields` VALUES (19,10,8,14,0,1,'2017-08-12 17:58:14','2017-08-12 17:58:14','a8ce5172-f06a-47bd-8fc8-0e24365bddad'),(20,10,8,15,0,2,'2017-08-12 17:58:14','2017-08-12 17:58:14','26297135-2d64-4975-a884-abc10f3d1c06'),(21,10,9,6,0,1,'2017-08-12 17:58:14','2017-08-12 17:58:14','1c5db96c-6eae-4bd8-8ec9-42c7ffc2eba4'),(22,10,9,7,0,2,'2017-08-12 17:58:14','2017-08-12 17:58:14','cdca02a9-ee4d-41a4-96be-eb5990e4e341'),(23,10,9,8,0,3,'2017-08-12 17:58:14','2017-08-12 17:58:14','d8bb3812-fd66-4de0-bec5-b9f2142d259a'),(24,10,9,9,0,4,'2017-08-12 17:58:14','2017-08-12 17:58:14','6a566762-4ad0-4def-b039-fc5461ea5873'),(25,10,9,10,0,5,'2017-08-12 17:58:14','2017-08-12 17:58:14','9c20eb13-ab87-40c1-ac0a-43fe5d2a7c10'),(26,10,9,11,0,6,'2017-08-12 17:58:14','2017-08-12 17:58:14','fb388bbd-59f8-409f-9714-2c753d1de598'),(27,10,9,12,0,7,'2017-08-12 17:58:14','2017-08-12 17:58:14','7d2a94e2-5f06-490e-a98c-c2abe01e8bf1'),(28,10,9,13,0,8,'2017-08-12 17:58:14','2017-08-12 17:58:14','f8550f0f-c502-4dbd-a2bf-0c5ed03541e9'),(29,10,10,16,0,1,'2017-08-12 17:58:14','2017-08-12 17:58:14','788c8e10-be22-43c5-9504-e9c0f53a5178'),(30,10,10,17,0,2,'2017-08-12 17:58:14','2017-08-12 17:58:14','19461387-fb08-4efb-9b76-58418837556d');
 /*!40000 ALTER TABLE `craft_fieldlayoutfields` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -770,7 +782,7 @@ CREATE TABLE `craft_fieldlayouts` (
   `uid` char(36) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `craft_fieldlayouts_type_idx` (`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -779,7 +791,7 @@ CREATE TABLE `craft_fieldlayouts` (
 
 LOCK TABLES `craft_fieldlayouts` WRITE;
 /*!40000 ALTER TABLE `craft_fieldlayouts` DISABLE KEYS */;
-INSERT INTO `craft_fieldlayouts` VALUES (1,'Tag','2017-08-08 20:12:49','2017-08-08 20:12:49','bc18c826-4428-491a-9d92-1f782254312b'),(3,'Entry','2017-08-08 20:12:49','2017-08-08 20:12:49','e2597b4b-3be4-4a9e-8fcd-5b3230cb1088'),(5,'Entry','2017-08-08 20:12:49','2017-08-08 20:12:49','9605caed-a2d8-43b7-a3e5-89bbfdf0dcc8');
+INSERT INTO `craft_fieldlayouts` VALUES (1,'Tag','2017-08-08 20:12:49','2017-08-08 20:12:49','bc18c826-4428-491a-9d92-1f782254312b'),(9,'Asset','2017-08-12 17:48:07','2017-08-12 17:48:07','135fb9a1-86bc-4a4e-88e7-56b87cf84551'),(10,'Entry','2017-08-12 17:58:14','2017-08-12 17:58:14','f9effc20-1c0a-4762-99a0-ea60db81531b');
 /*!40000 ALTER TABLE `craft_fieldlayouts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -802,7 +814,7 @@ CREATE TABLE `craft_fieldlayouttabs` (
   KEY `craft_fieldlayouttabs_sortOrder_idx` (`sortOrder`),
   KEY `craft_fieldlayouttabs_layoutId_fk` (`layoutId`),
   CONSTRAINT `craft_fieldlayouttabs_layoutId_fk` FOREIGN KEY (`layoutId`) REFERENCES `craft_fieldlayouts` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -811,7 +823,7 @@ CREATE TABLE `craft_fieldlayouttabs` (
 
 LOCK TABLES `craft_fieldlayouttabs` WRITE;
 /*!40000 ALTER TABLE `craft_fieldlayouttabs` DISABLE KEYS */;
-INSERT INTO `craft_fieldlayouttabs` VALUES (1,3,'Content',1,'2017-08-08 20:12:49','2017-08-08 20:12:49','d77b55ca-2ea4-436c-8cd1-5a2fec58db4c'),(2,5,'Content',1,'2017-08-08 20:12:49','2017-08-08 20:12:49','e01a5310-0bd9-4ad2-8497-5be0f0c15999');
+INSERT INTO `craft_fieldlayouttabs` VALUES (8,10,'Maria Mair',1,'2017-08-12 17:58:14','2017-08-12 17:58:14','018c1e47-74d0-48ff-9177-c088a8108d7f'),(9,10,'Über Maria',2,'2017-08-12 17:58:14','2017-08-12 17:58:14','f171965a-8faa-4e33-b7df-8aefb2a2cab3'),(10,10,'Bisherige Aufträge',3,'2017-08-12 17:58:14','2017-08-12 17:58:14','842d59c3-079e-4f25-b116-56a08cd7cc07');
 /*!40000 ALTER TABLE `craft_fieldlayouttabs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -840,7 +852,7 @@ CREATE TABLE `craft_fields` (
   KEY `craft_fields_context_idx` (`context`),
   KEY `craft_fields_groupId_fk` (`groupId`),
   CONSTRAINT `craft_fields_groupId_fk` FOREIGN KEY (`groupId`) REFERENCES `craft_fieldgroups` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -849,7 +861,7 @@ CREATE TABLE `craft_fields` (
 
 LOCK TABLES `craft_fields` WRITE;
 /*!40000 ALTER TABLE `craft_fields` DISABLE KEYS */;
-INSERT INTO `craft_fields` VALUES (1,1,'Body','body','global',NULL,1,'RichText','{\"configFile\":\"Standard.json\",\"columnType\":\"text\"}','2017-08-08 20:12:49','2017-08-08 20:12:49','65815cbf-9f2c-4375-9a2c-84f5fd97dc6e'),(2,1,'Tags','tags','global',NULL,0,'Tags','{\"source\":\"taggroup:1\"}','2017-08-08 20:12:49','2017-08-08 20:12:49','c474f91a-8b3f-497c-a071-9170194ae0d6');
+INSERT INTO `craft_fields` VALUES (6,2,'Die Lektorin','dieLektorin','global','',0,'PlainText','{\"placeholder\":\"\",\"maxLength\":\"\",\"multiline\":\"\",\"initialRows\":\"4\"}','2017-08-12 16:41:43','2017-08-12 16:41:43','f681f481-e99f-42f8-97ee-3c4082347f37'),(7,2,'Die Lektorin - Text','dieLektorinText','global','',0,'RichText','{\"configFile\":\"\",\"availableAssetSources\":\"\",\"availableTransforms\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"purifierConfig\":\"\",\"columnType\":\"text\"}','2017-08-12 16:42:06','2017-08-12 16:44:00','746159d3-d1eb-41b5-9cf8-25c31e2ada17'),(8,2,'Lektorat','lektorat','global','',0,'PlainText','{\"placeholder\":\"\",\"maxLength\":\"\",\"multiline\":\"\",\"initialRows\":\"4\"}','2017-08-12 16:42:21','2017-08-12 16:42:21','10e17ed4-cc4e-49f6-9f1c-7e12466bf788'),(9,2,'Lektorat - Text','lektoratText','global','',0,'RichText','{\"configFile\":\"\",\"availableAssetSources\":\"\",\"availableTransforms\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"purifierConfig\":\"\",\"columnType\":\"text\"}','2017-08-12 16:42:38','2017-08-12 16:43:43','861de89b-0fc7-4a10-9258-8c83003d00d1'),(10,2,'Korrektorat','korrektorat','global','',0,'PlainText','{\"placeholder\":\"\",\"maxLength\":\"\",\"multiline\":\"\",\"initialRows\":\"4\"}','2017-08-12 16:42:56','2017-08-12 16:42:56','409fc48e-8cad-4b2b-a19d-5cd9e99f9cb8'),(11,2,'Korrektorat - Text','korrektoratText','global','',0,'RichText','{\"configFile\":\"\",\"availableAssetSources\":\"\",\"availableTransforms\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"purifierConfig\":\"\",\"columnType\":\"text\"}','2017-08-12 16:43:06','2017-08-12 16:43:51','a73a3315-a5ae-41fd-9c01-6eb86e79b8e3'),(12,2,'Übersetzung','uebersetzung','global','',0,'PlainText','{\"placeholder\":\"\",\"maxLength\":\"\",\"multiline\":\"\",\"initialRows\":\"4\"}','2017-08-12 16:43:16','2017-08-12 16:43:16','bc22227b-71f4-4ac2-aa63-a94b5b40e8a8'),(13,2,'Übersetzung - Text','uebersetzungText','global','',0,'RichText','{\"configFile\":\"\",\"availableAssetSources\":\"\",\"availableTransforms\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"purifierConfig\":\"\",\"columnType\":\"text\"}','2017-08-12 16:43:29','2017-08-12 16:43:29','9dde19d5-2e87-40a3-b1e9-f39353973d53'),(14,3,'Autor','autor','global','',0,'PlainText','{\"placeholder\":\"\",\"maxLength\":\"\",\"multiline\":\"\",\"initialRows\":\"4\"}','2017-08-12 16:47:25','2017-08-12 16:47:25','e0988875-73aa-4228-9906-87831cadb451'),(15,3,'Bild','bild','global','',0,'Assets','{\"useSingleFolder\":\"1\",\"defaultUploadLocationSubpath\":\"img\",\"singleUploadLocationSubpath\":\"img\",\"restrictFiles\":\"1\",\"allowedKinds\":[\"image\"],\"limit\":\"1\",\"viewMode\":\"list\",\"selectionLabel\":\"\"}','2017-08-12 16:48:31','2017-08-12 17:02:37','435b6a29-bd5b-4987-a715-d29f67c47359'),(16,4,'Überschrift','ueberschrift','global','',0,'PlainText','{\"placeholder\":\"\",\"maxLength\":\"\",\"multiline\":\"\",\"initialRows\":\"4\"}','2017-08-12 16:49:45','2017-08-12 16:49:45','844c9017-6d5e-4095-9d7a-7cf013ed46e2'),(17,4,'Bisherige Aufträge','bisherigeAuftraege','global','',0,'RichText','{\"configFile\":\"\",\"availableAssetSources\":\"*\",\"availableTransforms\":\"*\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"purifierConfig\":\"\",\"columnType\":\"text\"}','2017-08-12 16:50:56','2017-08-12 16:50:56','dd3e8990-13bd-4176-85da-ab289278db1c');
 /*!40000 ALTER TABLE `craft_fields` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1214,7 +1226,7 @@ CREATE TABLE `craft_searchindex` (
 
 LOCK TABLES `craft_searchindex` WRITE;
 /*!40000 ALTER TABLE `craft_searchindex` DISABLE KEYS */;
-INSERT INTO `craft_searchindex` VALUES (1,'username',0,'de',' janedoe '),(1,'firstname',0,'de',''),(1,'lastname',0,'de',''),(1,'fullname',0,'de',''),(1,'email',0,'de',' janedoe localhost wtf '),(1,'slug',0,'de',''),(2,'slug',0,'de',' homepage '),(2,'title',0,'de',' welcome to development maria mair com '),(2,'field',1,'de',' it s true this site doesn t have a whole lot of content yet but don t worry our web developers have just installed the cms and they re setting things up for the content editors this very moment soon development maria mair com will be an oasis of fresh perspectives sharp analyses and astute opinions that will keep you coming back again and again '),(3,'field',1,'de',' craft is the cms that s powering development maria mair com it s beautiful powerful flexible and easy to use and it s made by pixel tonic we can t wait to dive in and see what it s capable of this is even more captivating content which you couldn t see on the news index page because it was entered after a page break and the news index template only likes to show the content on the first page craft a nice alternative to word if you re making a website '),(3,'field',2,'de',''),(3,'slug',0,'de',' we just installed craft '),(3,'title',0,'de',' we just installed craft ');
+INSERT INTO `craft_searchindex` VALUES (1,'username',0,'de',' janedoe '),(1,'firstname',0,'de',''),(1,'lastname',0,'de',''),(1,'fullname',0,'de',''),(1,'email',0,'de',' janedoe localhost wtf '),(1,'slug',0,'de',''),(2,'slug',0,'de',' homepage '),(2,'title',0,'de',' maria mair '),(2,'field',1,'de',' it s true this site doesn t have a whole lot of content yet but don t worry our web developers have just installed the cms and they re setting things up for the content editors this very moment soon development maria mair com will be an oasis of fresh perspectives sharp analyses and astute opinions that will keep you coming back again and again '),(2,'field',7,'de',' geboren und aufgewachsen in der zweisprachigen norditalienischen region suedtirol habe ich 2008 das nest verlassen und bin nach wien gezogen wo ich germanistik und vergleichende literaturwissenschaft mit den nebenfaechern kunstgeschichte und theater film und medienwissenschaften studiert habe die grauen winter habe ich zurueckgezogen in den kalten altbauzimmern in decken eingewickelt und stetig lesend ueberstanden verlassen habe ich diese hin und wieder um pflichtveranstaltungen an der uni zu besuchen in bibliotheken unter schlechten lichtern zu lesen oder neben den kulturell anderweitig wertvollen kneipenbesuchen das theater das kino oder kleine konzerte aufzusuchen die lesende haltung und der dazugehoerige sessel sind fuenf jahre spaeter mit mir nach hamburg weitergezogen wo der master in deutschsprachige literaturen folgte in dessen verlauf ich mich vor allem mit erinnerungskultur auseinandergesetzt habe '),(2,'field',10,'de',' korrektorat '),(2,'field',11,'de',' mein taegliches brot verdiene ich sehr gerne auf der suche nach fluechtigkeitsfehler verstaendnisfallen und grammatischen fehltritten ich korrigiere und redigiere texte schnell und zuverlaessig '),(2,'field',8,'de',' lektorat '),(2,'field',9,'de',' ich suche nach guten geschichten und nach jenen die sie erzaehlen koennen schon in meiner wissenschaftlichen arbeit hat mich stets die faszination fuer sprache und ihren moeglichkeiten der vermittlung angetrieben wie gelangen besondere erfahrungen ideen bilder von einem menschen auf buchseiten und dann auch noch hin bis zu einem oder einer zeitlich und raeumlich entfernten leser in diese frage stellt man sich besonders schnell bei grenzerfahrungen aber auch bei schoenen aufregenden packenden oder romantischen geschichten ich will dabei der schoenheit der sprache und jenen menschen die sowohl talent fuer sie als auch die notwendige disziplin zur literarischen arbeit besitzen als verborgene zuarbeiterin korrektorin motivatorin gedankenordnerin und disziplinatorin sowie recherchefuehrerin beistehen neben dem literarischen lektorat widme ich mich gerne und kompetent auch wissenschaftlichen texten '),(2,'field',12,'de',' uebersetzung '),(2,'field',13,'de',' ich spreche lese und schreibe fliessend italienisch und englisch und kann so auch bei uebersetzungsfragen beistehen und uebersetzungen in das deutsche uebernehmen individuelle preise divergieren je nach texttyp und anforderung und gibt es daher auf anfrage '),(2,'field',16,'de',' bisherige auftraege '),(2,'field',17,'de',' stilistische redaktion fuer snowfyre elfe aus eis von amy erin thyndal erschienen bei dark diamonds einem e book label des carlsen verlags fuer new adult fantasy https www carlsen de epub snowfyre elfe aus eis 83006 lektorat inhalt und stilistische redaktion einschliesslich autorenkommunikation fuer winterzauber in new york von julia k stein erschienen als epub bei impress einem imprint des carlsen verlags fuer paranormal romance coming of age und new adult https www carlsen de epub wi korrektorat von sachtexten fuer den verlag quayou der sich auf business methoden konzentriert sowie lektoratdienstleistungen fuer andere formate anbietet seit februar 2017 https quayou de korrektorat verschiedener artikel und texte fuer die technische universitaet wien im auftrag von univ ass arch dipl ing eva mair http www gbl tuwien ac at ar korrektorat verschiedener artikel fuer die feministische online plattform trust the girls http trustthegirls org 2017 kleinere textarbeiten wie das korrektorat von drehbuechern e mails etc und die erstellung einer pressemappe fuer die regisseurin nathalie borgers der ich von april bis juni 2013 assistiert habe diese arbeit wurde mit dem beginn der arbeit an dem dokumentarfilm fang den haider 2016 in ein praktikum bei der produktionsfirma kurt mayer film umgewandelt http dok at film fang den ha korrektorat für den druck des theaterstücks polaroid panoptikum verfasst von florian scheimpflug aufgeführt im april 2010 im dschungel wien '),(2,'field',6,'de',' die lektorin '),(2,'field',15,'de',''),(2,'field',14,'de',' maria mair ');
 /*!40000 ALTER TABLE `craft_searchindex` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1251,7 +1263,7 @@ CREATE TABLE `craft_sections` (
 
 LOCK TABLES `craft_sections` WRITE;
 /*!40000 ALTER TABLE `craft_sections` DISABLE KEYS */;
-INSERT INTO `craft_sections` VALUES (1,NULL,'Homepage','homepage','single',1,'index',1,'2017-08-08 20:12:49','2017-08-08 20:12:49','1c5197f1-5a5e-4d05-8b51-8565c4d58ed9'),(2,NULL,'News','news','channel',1,'news/_entry',1,'2017-08-08 20:12:49','2017-08-08 20:12:49','5127aef6-546a-484b-a45d-bf2b1840b820');
+INSERT INTO `craft_sections` VALUES (1,NULL,'Homepage','homepage','single',1,'index',1,'2017-08-08 20:12:49','2017-08-08 20:12:49','1c5197f1-5a5e-4d05-8b51-8565c4d58ed9');
 /*!40000 ALTER TABLE `craft_sections` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1286,7 +1298,7 @@ CREATE TABLE `craft_sections_i18n` (
 
 LOCK TABLES `craft_sections_i18n` WRITE;
 /*!40000 ALTER TABLE `craft_sections_i18n` DISABLE KEYS */;
-INSERT INTO `craft_sections_i18n` VALUES (1,1,'de',1,'__home__',NULL,'2017-08-08 20:12:49','2017-08-08 20:12:49','70b272d8-ae69-4f73-88d5-e3229916e756'),(2,2,'de',1,'news/{postDate.year}/{slug}',NULL,'2017-08-08 20:12:49','2017-08-08 20:12:49','508d7f73-d693-479b-bd95-b1e31033c2bc');
+INSERT INTO `craft_sections_i18n` VALUES (1,1,'de',1,'__home__',NULL,'2017-08-08 20:12:49','2017-08-08 20:12:49','70b272d8-ae69-4f73-88d5-e3229916e756');
 /*!40000 ALTER TABLE `craft_sections_i18n` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1310,7 +1322,7 @@ CREATE TABLE `craft_sessions` (
   KEY `craft_sessions_dateUpdated_idx` (`dateUpdated`),
   KEY `craft_sessions_userId_fk` (`userId`),
   CONSTRAINT `craft_sessions_userId_fk` FOREIGN KEY (`userId`) REFERENCES `craft_users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1319,7 +1331,7 @@ CREATE TABLE `craft_sessions` (
 
 LOCK TABLES `craft_sessions` WRITE;
 /*!40000 ALTER TABLE `craft_sessions` DISABLE KEYS */;
-INSERT INTO `craft_sessions` VALUES (1,1,'387947ca59cb314911f85dfeac1eb4b3c616c76bczozMjoiNlViNFR1QmhCUWJzWm1YZDVpakd5V25hX2daOV84bGMiOw==','2017-08-08 20:12:49','2017-08-08 20:12:49','9ef63fa7-40a1-41dc-80c8-5e97438bca4b');
+INSERT INTO `craft_sessions` VALUES (1,1,'387947ca59cb314911f85dfeac1eb4b3c616c76bczozMjoiNlViNFR1QmhCUWJzWm1YZDVpakd5V25hX2daOV84bGMiOw==','2017-08-08 20:12:49','2017-08-08 20:12:49','9ef63fa7-40a1-41dc-80c8-5e97438bca4b'),(2,1,'dd61d75a1dd20b1aaae79450d77a5ad84d6a46deczozMjoicjRjRWhSanc0eEhLVG8xeVM5WnRxTEJXWHdHOHhjNVciOw==','2017-08-12 16:01:55','2017-08-12 16:01:55','153c51c4-66b8-462d-b17f-b5d8716f3bce');
 /*!40000 ALTER TABLE `craft_sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1536,7 +1548,7 @@ CREATE TABLE `craft_tasks` (
   KEY `craft_tasks_lft_idx` (`lft`),
   KEY `craft_tasks_rgt_idx` (`rgt`),
   KEY `craft_tasks_level_idx` (`level`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1867,7 +1879,7 @@ CREATE TABLE `craft_users` (
 
 LOCK TABLES `craft_users` WRITE;
 /*!40000 ALTER TABLE `craft_users` DISABLE KEYS */;
-INSERT INTO `craft_users` VALUES (1,'janedoe',NULL,NULL,NULL,'janedoe@localhost.wtf','$2y$13$8sML.1FiLCZDJZIlRKsBSOnAcvTtit8TaSatWlBOcTkl1I9akEkfm',NULL,0,1,0,0,0,0,0,'2017-08-08 20:12:49','192.168.50.1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,'2017-08-08 20:12:47','2017-08-08 20:12:47','2017-08-08 20:12:49','62cc6dbb-591c-4328-af77-5b67762e1a36');
+INSERT INTO `craft_users` VALUES (1,'janedoe',NULL,'','','janedoe@localhost.wtf','$2y$13$8sML.1FiLCZDJZIlRKsBSOnAcvTtit8TaSatWlBOcTkl1I9akEkfm',NULL,1,1,0,0,0,0,0,'2017-08-12 16:01:55','192.168.50.1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,'2017-08-08 20:12:47','2017-08-08 20:12:47','2017-08-12 16:03:22','62cc6dbb-591c-4328-af77-5b67762e1a36');
 /*!40000 ALTER TABLE `craft_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1914,4 +1926,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-08 20:31:41
+-- Dump completed on 2017-08-12 18:12:15
