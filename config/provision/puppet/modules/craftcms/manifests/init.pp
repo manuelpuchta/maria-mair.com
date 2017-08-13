@@ -57,6 +57,15 @@ class craftcms::install {
     require => Exec['untar-craftcms']
   }
 
+  # Bring project src/templates/** into craft installation folder
+  file { 'setup_templates':
+    path => '/vagrant/craft/templates',
+    source => '/vagrant/src/templates',
+    recurse => true,
+    force => true,
+    require => Exec['untar-craftcms']
+  }
+
   # Copy a working config/db.php file for the craft installation
   file { '/vagrant/craft/config/db.php':
     source => 'puppet:///modules/craftcms/db.php',
