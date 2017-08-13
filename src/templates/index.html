@@ -23,8 +23,10 @@
 
   <strong>Maria</strong>
 	<h1>{{ entry.autor }}</h1>
-  {% if entry.bild | length %}
-    <div>{{ entry.bild }}</div>
+  {% if entry.bild.assetsFieldHandle | length %}
+    {% for asset in entry.bild.assetsFieldHandle %}
+        <img src="{{ asset.url }}" />
+    {% endfor %}
   {% endif %}
 
   <strong>Über</strong>
