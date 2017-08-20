@@ -21,29 +21,13 @@
 
 {% block content %}
 
-  <strong>Maria</strong>
-	<h1>{{ entry.autor }}</h1>
   {% if entry.bild.assetsFieldHandle | length %}
     {% for asset in entry.bild.assetsFieldHandle %}
         <img src="{{ asset.url }}" />
     {% endfor %}
   {% endif %}
 
-  <strong>Über</strong>
-	<div>{{ entry.dieLektorin }}</div>
-	<div>{{ entry.dieLektorinText }}</div>
-
-  <div>{{ entry.lektorat }}</div>
-	<div>{{ entry.lektoratText }}</div>
-
-	<div>{{ entry.korrektorat }}</div>
-	<div>{{ entry.korrektoratText }}</div>
-
-	<div>{{ entry.uebersetzung }}</div>
-	<div>{{ entry.uebersetzungText }}</div>
-
-  <strong>Aufträge</strong>
-  <div>{{ entry.ueberschrift }}</div>
+  <div>{{ entry.ueberMaria }}</div>
   <div>{{ entry.bisherigeAuftraege }}</div>
 
 {% endblock %}
