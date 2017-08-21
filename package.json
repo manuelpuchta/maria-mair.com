@@ -4,6 +4,8 @@
   "description": "Personal website maria-mair.com",
   "main": "index.js",
   "scripts": {
+    "start": "onchange 'src/**.scss' -- npm run scss:local",
+    "scss:local": "node-sass --output-style nested -o html/css src/style/style.scss",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -12,14 +14,16 @@
   },
   "keywords": [
     "craftcms",
-    "webpack",
-    "SCSS",
-    "ES6"
+    "SCSS"
   ],
   "author": "Manue Puchta <hallo@manuelpuchta.de>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/manuelpuchta/maria-mair.com/issues"
   },
-  "homepage": "https://github.com/manuelpuchta/maria-mair.com#readme"
+  "homepage": "https://github.com/manuelpuchta/maria-mair.com#readme",
+  "devDependencies": {
+    "node-sass": "^4.5.3",
+    "onchange": "^3.2.1"
+  }
 }
