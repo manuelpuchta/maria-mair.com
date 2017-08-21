@@ -15,12 +15,10 @@
 	<meta charset="utf-8" />
 	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
 	<link rel="home" href="{{ siteUrl }}" />
-  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/7.0.0/normalize.css">
-  <style>img {display:block;max-width:100%;}</style>
+  <link rel="stylesheet" href="{{ siteUrl }}css/style.css">
 </head>
 
 <body>
-	<div id="container">
 		<header id="header">
 			<h1><a href="{{ siteUrl }}">{{ siteName }}</a></h1>
 		</header>
@@ -32,6 +30,5 @@
 			{% endblock %}
 		</main>
 
-	</div>
 </body>
 </html>
