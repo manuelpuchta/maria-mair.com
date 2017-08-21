@@ -22,7 +22,7 @@ git clone git@github.com:manuelpuchta/maria-mair.com.git
 
     * SCSS: [BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) - meaning block, element, modifier - `src/**/*.{scss}`
 
-    * JS: pure Vanilla JS (ES6) - via [Babel](https://babeljs.io/) JavaScript compiler  - `src/**/*.{js}`
+    * (JS: pure Vanilla JS (ES6) - via [Babel](https://babeljs.io/) JavaScript compiler  - `src/**/*.{js}`)
 
 ### Dependencies
 
