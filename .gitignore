@@ -8,7 +8,7 @@ yarn-error.log*
 
 # Dependency directories
 node_modules/
-dist/
+build/
 craft/
 
 # Temporary files and directories
