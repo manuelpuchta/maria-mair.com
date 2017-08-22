@@ -23,7 +23,7 @@
 
   {% if entry.bild.assetsFieldHandle | length %}
     {% for asset in entry.bild.assetsFieldHandle %}
-        <img src="{{ asset.url }}" />
+        <img class="main__img" src="{{ asset.url }}" alt="Maria Mair" />
     {% endfor %}
   {% endif %}
 
