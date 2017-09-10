@@ -1,5 +1,15 @@
 .header {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  padding: 8% 0 2em;
+
   &__headline {
-    font-size: 3em;
+    font-size: 3.375em;
+    margin: 0 0 0 6%;
+
+    @media (min-width: 48em) {
+      margin-left: 15%;
+    }
   }
 }

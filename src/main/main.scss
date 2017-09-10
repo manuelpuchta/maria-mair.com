@@ -1,9 +1,40 @@
 .main {
-  max-width: 600px;
+  position: relative;
   margin: 0 auto;
-  
+  padding: 77.666% 0 8%;
+
+  @media (min-width: 48em) {
+    max-width: 1000px;
+  }
+
   &__img {
+    // ratio: 0,6666666667
     display: block;
     max-width: 100%;
+    position: absolute;
+    right: -30%;
+    top: 0.5%;
+  }
+
+  &__content {
+    margin: 0 1em;
+  }
+
+  h2 {
+    font-size: 2.25em;
+  }
+
+  p {
+    font-size: 1.3em;
+
+    @media (min-width: 48em) {
+      font-size: 1.5em;
+    }
+  }
+
+  &__footer {
+    p {
+      margin: 0;
+    }
   }
 }
