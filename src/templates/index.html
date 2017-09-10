@@ -27,8 +27,14 @@
     {% endfor %}
   {% endif %}
 
-  {{ entry.ueberMaria }}
+  <div class="main__content">
+    {{ entry.ueberMaria }}
 
-  {{ entry.bisherigeAuftraege }}
+    {{ entry.bisherigeAuftraege }}
+  </div>
+
+  <div class="main__footer">
+    {{ entry.footer }}
+  </div>
 
 {% endblock %}
