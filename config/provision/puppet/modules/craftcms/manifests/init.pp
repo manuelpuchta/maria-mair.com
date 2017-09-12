@@ -29,7 +29,7 @@ class craftcms::install {
     require => Exec['download-craftcms']
   }
 
-  # Remove public dir
+  # Remove public dir, we use html/ directory
   file { 'remove_public_directory':
     ensure  => absent,
     path    => '/vagrant/public',
@@ -54,14 +54,6 @@ class craftcms::install {
     path    => '/vagrant/readme.txt',
     purge   => true,
     force   => true,
-    require => Exec['untar-craftcms']
-  }
-
-  # Symlink src/templates/** to craft installation
-  file { '/vagrant/craft/templates':
-    ensure => 'link',
-    target => '/vagrant/src/templates',
-    force => true,
     require => Exec['untar-craftcms']
   }
 
