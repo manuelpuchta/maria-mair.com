@@ -29,7 +29,7 @@ class craftcms::install {
     require => Exec['download-craftcms']
   }
 
-  # Remove public dir, we use html/ directory
+  # Remove public dir, we use html/ directory as root
   file { 'remove_public_directory':
     ensure  => absent,
     path    => '/vagrant/public',
@@ -69,10 +69,29 @@ class craftcms::install {
     require => Exec['create-user']
   }
 
+  # Load our craft database
   exec { 'load-db':
     command => '/usr/bin/mysql -u craftcms -pcraftcms craftcms < /tmp/craftcms-db.sql && touch /home/vagrant/db-created',
     creates => '/home/vagrant/db-created',
     require => Exec['create-user']
+  }
+
+  # Save craftcms installation templates in craft/_templates/ directory
+  file { 'save_craftcms_src_templates':
+    ensure => 'directory',
+    source => '/vagrant/craft/templates',
+    recurse => 'remote',
+    path => '/vagrant/craft/_templates',
+    require => Exec['untar-craftcms']
+  }
+
+  # Link our src/templates/ directory to craft installation
+  file { 'link_src_templates_to_craft':
+    path => '/vagrant/craft/templates',
+    ensure => 'link',
+    target => '/vagrant/src/templates',
+    force => true,
+    require => File['save_craftcms_src_templates']
   }
 
 }
