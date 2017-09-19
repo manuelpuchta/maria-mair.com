@@ -13,8 +13,6 @@ Vagrant.configure("2") do |config|
     puppet.options="--verbose --debug"
   end
 
-  config.vm.provision :shell, path: "config/provision/shell/local-setup.sh"
-
   config.vm.provider :virtualbox do |vb|
     vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
     vb.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
