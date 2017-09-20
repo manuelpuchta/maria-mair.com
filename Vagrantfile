@@ -19,7 +19,9 @@ Vagrant.configure("2") do |config|
   end
 
   config.trigger.before :destroy do
-    info "Run database backup script before destroying the VM."
+    info "Run database backup script."
     run_remote  "bash /vagrant/config/provision/shell/mysqldump.sh"
+    info "Run cleanup script."
+    run_remote  "bash /vagrant/config/provision/shell/cleanup.sh"
   end
 end
