@@ -4,8 +4,8 @@
   "description": "Personal website maria-mair.com",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=\"development\" webpack --config webpack.config.js --watch",
-    "build": "NODE_ENV=\"production\" webpack --config webpack.config.js",
+    "start": "NODE_ENV=\"development\" webpack-dev-server --host 0.0.0.0 --public 192.168.50.5:8080 --watch-poll",
+    "build": "NODE_ENV=\"production\" webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -37,6 +37,7 @@
     "postcss-loader": "^2.0.6",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
-    "webpack": "^3.5.5"
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.8.2"
   }
 }
