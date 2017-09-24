@@ -138,19 +138,13 @@ const config = {
     // (does not apply to resolving to loaders)
     modules: [path.resolve(__dirname, 'src'), 'node_modules']
   },
+  watch: isDevelopment,
+  watchOptions: {
+    aggregateTimeout: 500,
+    ignored: /node_modules/
+  },
   // adding plugins to our configuration
-  plugins,
-  devServer: {
-    contentBase: path.join(__dirname, 'html/'),
-    compress: true,
-    host: '0.0.0.0',
-    // For some systems, watching many file systems can result in a lot of CPU or memory usage.
-    // It is possible to exclude a huge folder like node_modules
-    watchOptions: {
-      ignored: /node_modules/,
-    },
-    port: 8080
-  }
+  plugins
 };
 
 module.exports = config;
