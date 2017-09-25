@@ -5,7 +5,8 @@
 @import "main/main";
 
 body {
-  font-family: 'Inconsolata', 'Times New Roman', serif;
+  font-family: 'Old Standard TT', serif;
+  // font-family: 'Inconsolata', 'Times New Roman', serif;
   font-weight: 400;
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
@@ -15,14 +16,14 @@ body {
 .container {
   position: relative;
   padding: 15px;
-  overflow: hidden;
+  // overflow: hidden;
 
-  &:before {
-    position: absolute;
-    display: block;
-    width: calc(100% - 30px);
-    height: calc(100% - 30px);
-    background-color: #FAFAFA;
-    content: '';
-  }
+  // &:before {
+  //   position: absolute;
+  //   display: block;
+  //   width: calc(100% - 30px);
+  //   height: calc(100% - 30px);
+  //   background-color: #FAFAFA;
+  //   content: '';
+  // }
 }
