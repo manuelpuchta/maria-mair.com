@@ -24,15 +24,26 @@
   <section class="container">
 
   	<header class="header">
+      HEADER
   		<h1 class="header__headline"><a class="link" href="{{ siteUrl }}">Maria</br>Mair</a></h1>
+
+      <div class="header__about">
+        {{ entry.ueberMaria }}
+      </div>
   	</header>
 
   	<main class="main" role="main">
+      MAIN
   		{% block content %}
   			<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
   			<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
   		{% endblock %}
   	</main>
+
+    <footer class="footer">
+      FOOTER
+      {{ entry.footer }}
+    </footer>
 
   </section>
 
@@ -40,7 +51,8 @@
   <script type="text/javascript" src="{{ siteUrl }}static/vendor.js"></script>
   <script type="text/javascript" src="{{ siteUrl }}static/index.js"></script>
 
-  <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT:400,700" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet"> -->
 
 </body>
 </html>

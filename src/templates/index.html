@@ -21,20 +21,40 @@
 
 {% block content %}
 
-  {% if entry.bild.assetsFieldHandle | length %}
-    {% for asset in entry.bild.assetsFieldHandle %}
-        <img class="main__img" src="{{ asset.url }}" alt="Maria Mair" />
-    {% endfor %}
-  {% endif %}
-
   <div class="main__content">
-    {{ entry.ueberMaria }}
 
-    {{ entry.bisherigeAuftraege }}
+    <nav class="main__navigation">
+      MAIN_NAVIGATION
+      <ul>
+        <li>Lektorat</li>
+        <li>Korrektorat</li>
+        <li>Übersetzung</li>
+      </ul>
+    </nav>
+
+    <div class="main__items">
+      MAIN_ITEMS
+      <ul>
+        <li>{{ entry.lektorat }}</li>
+        <li>{{ entry.korrektorat }}</li>
+        <li>{{ entry.uebersetzung }}</li>
+      </ul>
+    </div>
+
+    <div class="main__portfolio">
+      PORTFOLIO
+      {{ entry.portfolio }}
+    </div>
+
   </div>
 
-  <div class="main__footer">
-    {{ entry.footer }}
-  </div>
+  <aside class="aside">
+    ASIDE
+    {% if entry.bild.assetsFieldHandle | length %}
+      {% for asset in entry.bild.assetsFieldHandle %}
+          <img class="main__img" src="{{ asset.url }}" alt="Maria Mair" />
+      {% endfor %}
+    {% endif %}
+  </aside>
 
 {% endblock %}
