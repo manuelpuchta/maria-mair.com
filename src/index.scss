@@ -3,6 +3,7 @@
 @import "header/header";
 @import "link/link";
 @import "main/main";
+@import "footer/footer";
 
 body {
   font-family: 'Old Standard TT', serif;
@@ -11,19 +12,4 @@ body {
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.container {
-  position: relative;
-  padding: 15px;
-  // overflow: hidden;
-
-  // &:before {
-  //   position: absolute;
-  //   display: block;
-  //   width: calc(100% - 30px);
-  //   height: calc(100% - 30px);
-  //   background-color: #FAFAFA;
-  //   content: '';
-  // }
 }
