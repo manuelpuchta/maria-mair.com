@@ -2,18 +2,16 @@
 
 import './header.scss';
 
-const dom = document.getElementById('app');
-
 class Header {
   constructor() {
-    this.headerToggleClass = 'header__content--max-height';
-    this.headerToggleText = ['Mehr.', 'Weniger.'];
-    this.headerIsVisible = false;
-    this.headerContentElement = document.getElementsByClassName('header__content')[0];
-    this.headerToggleElement = document.getElementsByClassName('header__toggle')[0];
-    const toggleHandler = (e) => this.toggleHandler(e);
-    this.headerToggleElement.addEventListener('touchstart', toggleHandler);
-    this.headerToggleElement.addEventListener('mousedown', toggleHandler);
+    // this.headerToggleClass = 'header__content--max-height';
+    // this.headerToggleText = ['Mehr.', 'Weniger.'];
+    // this.headerIsVisible = false;
+    // this.headerContentElement = document.getElementsByClassName('header__content')[0];
+    // this.headerToggleElement = document.getElementsByClassName('header__toggle')[0];
+    // const toggleHandler = (e) => this.toggleHandler(e);
+    // this.headerToggleElement.addEventListener('touchstart', toggleHandler);
+    // this.headerToggleElement.addEventListener('mousedown', toggleHandler);
   }
 
   toggleHandler(e) {

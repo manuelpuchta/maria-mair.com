@@ -22,15 +22,14 @@
 <body>
 
 	<header class="header">
-    <div class="header__content">
-      <h1 class="header__headline">
-        <a class="link" href="{{ siteUrl }}">Maria Mair</a>
-      </h1>
-      <div class="header__about">
-        {{ entry.ueberMaria }}
-      </div>
-    </div>
-    <div class="header__toggle">Mehr.</div>
+    <h1 class="header__headline">
+      <a class="link" href="{{ siteUrl }}">Maria Mair</a>
+    </h1>
+    {% if entry.bild.assetsFieldHandle | length %}
+      {% for asset in entry.bild.assetsFieldHandle %}
+          <img class="header__img" src="{{ asset.url }}" alt="Maria Mair" />
+      {% endfor %}
+    {% endif %}
   </header>
 
 	<main class="main" role="main">
@@ -40,6 +39,10 @@
 			<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
 		{% endblock %}
 	</main>
+
+  <aside class="aside">
+    {{ entry.ueberMaria }}
+  </aside>
 
   <footer class="footer">
     {{ entry.footer }}

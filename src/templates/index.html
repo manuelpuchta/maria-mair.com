@@ -48,13 +48,4 @@
 
   </div>
 
-  <aside class="aside">
-    ASIDE
-    {% if entry.bild.assetsFieldHandle | length %}
-      {% for asset in entry.bild.assetsFieldHandle %}
-          <img class="main__img" src="{{ asset.url }}" alt="Maria Mair" />
-      {% endfor %}
-    {% endif %}
-  </aside>
-
 {% endblock %}
