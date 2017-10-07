@@ -9,10 +9,22 @@ body {
   font-family: 'Old Standard TT', serif;
   // font-family: 'Inconsolata', 'Times New Roman', serif;
   font-weight: 400;
+  line-height: 1.5;
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
+a {
+  color: black;
+
+  &:active, &:hover, &:visited {
+    color: black;
+  }
+}
+
+.layout {
   max-width: 80vw;
   margin: 0 auto;
+  overflow-x: hidden;
 }

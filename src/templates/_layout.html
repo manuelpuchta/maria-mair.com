@@ -21,32 +21,35 @@
 
 <body>
 
-	<header class="header">
-    <h1 class="header__headline">
-      <a class="link" href="{{ siteUrl }}">Maria Mair</a>
-    </h1>
-    {% if entry.bild.assetsFieldHandle | length %}
-      {% for asset in entry.bild.assetsFieldHandle %}
-          <img class="header__img" src="{{ asset.url }}" alt="Maria Mair" />
-      {% endfor %}
-    {% endif %}
-  </header>
+  <div class="layout">
 
-	<main class="main" role="main">
-    MAIN
-		{% block content %}
-			<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
-			<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
-		{% endblock %}
-	</main>
+    <header class="header">
+      <h1 class="header__headline">
+        <a class="link" href="{{ siteUrl }}">Maria Mair</a>
+      </h1>
+      {% if entry.bild.assetsFieldHandle | length %}
+        {% for asset in entry.bild.assetsFieldHandle %}
+            <img class="header__img" src="{{ asset.url }}" alt="Maria Mair" />
+        {% endfor %}
+      {% endif %}
+    </header>
 
-  <aside class="aside">
-    {{ entry.ueberMaria }}
-  </aside>
+    <main class="main" role="main">
+      {% block content %}
+        <p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
+        <p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
+      {% endblock %}
+    </main>
 
-  <footer class="footer">
-    {{ entry.footer }}
-  </footer>
+    <aside class="aside">
+      {{ entry.ueberMaria }}
+    </aside>
+
+    <footer class="footer">
+      {{ entry.footer }}
+    </footer>
+
+  </div>
 
   <script type="text/javascript" src="{{ siteUrl }}static/manifest.js"></script>
   <script type="text/javascript" src="{{ siteUrl }}static/vendor.js"></script>

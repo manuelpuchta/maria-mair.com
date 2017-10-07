@@ -1,13 +1,27 @@
 .header {
   position: relative;
-  margin: 10vh 0 5vh;
+  margin-top: 15vh;
+  margin-bottom: 5vh;
+  padding-bottom: 66%;
 
-  @media (min-width: 48em) {
-    margin: 10vh 0 5vh;
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 70%;
+    width: 2px;
+    background: black;
   }
 
-  @media (min-width: 80em) {
-    margin: 15vh 0 5vh;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 15vw;
+    background: black;
   }
 
   &__headline {
@@ -31,11 +45,11 @@
     position: absolute;
     z-index: 0;
     top: -10vh;
-    right: -7vh;
+    right: -5vh;
     width: 50vw;
 
     @media (min-width: 48em) {
-      right: -10vw;
+      right: -8vw;
     }
 
     @media (min-width: 64em) {

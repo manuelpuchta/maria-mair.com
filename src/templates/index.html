@@ -21,31 +21,23 @@
 
 {% block content %}
 
-  <div class="main__content">
+  <div class="main__item">
+    <h2>Lektorat</h2>
+    {{ entry.lektorat }}
+  </div>
 
-    <nav class="main__navigation">
-      MAIN_NAVIGATION
-      <ul>
-        <li>Lektorat</li>
-        <li>Korrektorat</li>
-        <li>Übersetzung</li>
-      </ul>
-    </nav>
+  <div class="main__item">
+    <h2>Korrektorat</h2>
+    {{ entry.korrektorat }}
+  </div>
 
-    <div class="main__items">
-      MAIN_ITEMS
-      <ul>
-        <li>{{ entry.lektorat }}</li>
-        <li>{{ entry.korrektorat }}</li>
-        <li>{{ entry.uebersetzung }}</li>
-      </ul>
-    </div>
+  <div class="main__item">
+    <h2>Übersetzung</h2>
+    {{ entry.uebersetzung }}
+  </div>
 
-    <div class="main__portfolio">
-      PORTFOLIO
-      {{ entry.portfolio }}
-    </div>
-
+  <div class="main__portfolio">
+    {{ entry.portfolio }}
   </div>
 
 {% endblock %}
