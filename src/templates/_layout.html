@@ -23,9 +23,13 @@
 
   <div class="layout">
 
+    <div class="imprint">
+      {{ entry.imprint }}
+    </div>
+
     <header class="header">
       <h1 class="header__headline">
-        <a class="link" href="{{ siteUrl }}">Maria Mair</a>
+        <a class="link" href="{{ siteUrl }}#maria">Maria Mair</a>
       </h1>
       {% if entry.bild.assetsFieldHandle | length %}
         {% for asset in entry.bild.assetsFieldHandle %}
@@ -41,13 +45,9 @@
       {% endblock %}
     </main>
 
-    <aside class="aside">
+    <aside class="aside" id="maria">
       {{ entry.ueberMaria }}
     </aside>
-
-    <footer class="footer">
-      {{ entry.footer }}
-    </footer>
 
   </div>
 
@@ -56,7 +56,6 @@
   <script type="text/javascript" src="{{ siteUrl }}static/index.js"></script>
 
   <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT:400,700" rel="stylesheet">
-  <!-- <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet"> -->
 
 </body>
 </html>
