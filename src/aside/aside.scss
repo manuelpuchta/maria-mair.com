@@ -1,3 +1,11 @@
 .aside {
-  display: none;
+  font-size: 5vw;
+  margin: 7vh 0 15vh;
+  padding-top: 1vh;
+
+  @media (min-width: 64em) {
+    font-size: 2.5vw;
+    margin: 12vh 0 30vh 15vw;
+    text-align: justify;
+  }
 }

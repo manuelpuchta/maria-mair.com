@@ -1,5 +1,6 @@
 @import "core/normalize";
 
+@import "imprint/imprint";
 @import "link/link";
 @import "main/main";
 @import "aside/aside";
@@ -17,9 +18,14 @@ body {
 
 a {
   color: black;
+  transition: color 0.15s cubic-bezier(0.75, 0, 0.25, 1);
 
-  &:active, &:hover, &:visited {
+  &:visited {
     color: black;
+  }
+
+  &:active, &:hover {
+    color: darkgrey;
   }
 }
 

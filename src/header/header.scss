@@ -1,8 +1,12 @@
 .header {
   position: relative;
-  margin-top: 15vh;
+  margin-top: 18vh;
   margin-bottom: 5vh;
   padding-bottom: 66%;
+
+  @media (min-width: 80em) {
+    margin-top: 27vh;
+  }
 
   &:before {
     content: '';
@@ -44,7 +48,7 @@
     max-width: 100%;
     position: absolute;
     z-index: 0;
-    top: -10vh;
+    top: -9vh;
     right: -5vh;
     width: 50vw;
 
