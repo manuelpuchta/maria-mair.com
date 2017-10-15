@@ -12,11 +12,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
-	<meta charset="utf-8" />
-	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+  <meta charset="utf-8" />
+  <title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="home" href="{{ siteUrl }}" />
-  <!-- <link rel="stylesheet" href="{{ siteUrl }}static/index.css"> -->
+  <meta name="description" content="Maria Mair ist freie Lektorin in Hamburg">
+  <meta name="keywords" content="Maria Mair, freie Lektorin, Lektorat, Korrektorat, Übersetzung, Italienisch, Englisch, Deutsch" />
+  <link rel="home" href="{{ siteUrl }}" />
+  <link rel="shortcut icon" href="{{ siteUrl }}static/favicon.ico" />
+  <link rel="stylesheet" href="{{ siteUrl }}static/index.css">
 </head>
 
 <body>
@@ -50,10 +53,6 @@
     </aside>
 
   </div>
-
-  <script type="text/javascript" src="{{ siteUrl }}static/manifest.js"></script>
-  <script type="text/javascript" src="{{ siteUrl }}static/vendor.js"></script>
-  <script type="text/javascript" src="{{ siteUrl }}static/index.js"></script>
 
   <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT:400,700" rel="stylesheet">
 
