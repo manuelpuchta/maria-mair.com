@@ -90,10 +90,10 @@ To get started with local development, run:
 npm start
 ```
 
-To build a production ready version, run:
+To build production ready static files, run:
 
 ```bash
-npm run release
+npm run build
 ```
 
-This will clean the `dist` folder and compile a fresh production ready version into `dist`.
+This will clean the `dist` folder and compile minified JS/CSS into `dist`.
