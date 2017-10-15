@@ -4,6 +4,10 @@
   margin-bottom: 5vh;
   padding-bottom: 66%;
 
+  @media (min-width: 64em) {
+    padding-bottom: 50%;
+  }
+
   @media (min-width: 80em) {
     margin-top: 27vh;
   }
@@ -41,6 +45,10 @@
     @media (min-width: 48em) {
       font-size: 10vw;
     }
+
+    @media (min-width: 64em) {
+      font-size: 8vw;
+    }
   }
 
   &__img {
@@ -58,6 +66,8 @@
 
     @media (min-width: 64em) {
       top: -15vh;
+      right: -4vh;
+      width: 40vw;
     }
 
     @media (min-width: 80em) {

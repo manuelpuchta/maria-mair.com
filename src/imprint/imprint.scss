@@ -10,31 +10,12 @@
   }
 
   @media (min-width: 80em) {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
   }
 
   ul {
     list-style: none;
     padding: 0;
     margin: 4vh 0;
-
-    @media (min-width: 80em) {
-      text-align: center;
-    }
-
-    li {
-
-      @media (min-width: 80em) {
-        display: inline-block;
-        padding-left: 1vw;
-        border-left: 1px solid black;
-        margin-right: 1vw;
-
-        &:first-child {
-          border: 0;
-          padding: 0;
-        }
-      }
-    }
   }
 }
