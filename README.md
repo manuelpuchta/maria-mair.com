@@ -4,4 +4,4 @@
 
 This project relies just on awesome [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) and [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS).
 
-Hosted on [uberspace](https://uberspace.de/en/).
+Hosted on [uberspace](https://uberspace.de/en/) :green_heart:.
