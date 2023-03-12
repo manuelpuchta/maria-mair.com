@@ -47,10 +47,6 @@
       font-size: 7.5vw;
     }
 
-    h3 {
-      font-size: 6vw;
-    }
-
     hr {
       border: 0;
       height: 1px;
@@ -70,16 +66,6 @@
     .link:active, .link:hover {
       color: darkgrey;
     }
-    
-    .address {
-      font-size: 4vw;
-    }
-
-    .address-list {
-      list-style: none;
-      padding: 0;
-      margin: 4vh 0;
-    }
 
     .header {
       position: relative;
@@ -93,7 +79,7 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      height: 70%;
+      height: 50%;
       width: 2px;
       background: black;
     }
@@ -120,7 +106,7 @@
       max-width: 100%;
       position: absolute;
       z-index: 0;
-      top: -9vh;
+      top: 4vh;
       right: -5vh;
       width: 50vw;
     }
@@ -130,60 +116,18 @@
       margin: 7vh 0;
     }
 
-    .main__portfolio {
-      position: relative;
-      margin: 10vh 0 7vh;
-      padding: 5vh 0 0;
-      font-size: 5vw;  
-    }
-
-    .main__portfolio:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 70vw;
-      height: 2px;
-      background: black;
-      display: block;
-    }
-
-    .main__portfolio:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 1%;
-      width: 2px;
-      background: black;
-      display: block;
-    }
-
-    .portfolio-list {
-      list-style-type: square;
-    }
-
-    .portfolio-list li {
-      margin: 4vh 0;
-    }
-
-    .aside {
-      font-size: 5vw;
-      margin: 7vh 0 15vh;
-      padding-top: 1vh; 
-    }
-
     @media (min-width: 48em) {
-      .address {
-        font-size: 3vw; 
-      }
-
-      .header__headline {
-        font-size: 10vw;
+      h2 {
+        font-size: 6vw;
       }
 
       .header__img {
         right: -8vw;
+        top: 7vh;
+      }
+
+      .main__item {
+        font-size: 4vw;
       }
     }
 
@@ -192,26 +136,19 @@
         font-size: 4vw;
       }
 
-      h3 {
-        font-size: 3vw;
-      }
-
-      .address {
-        font-size: 2vw; 
-      }
-
       .header {
-        padding-bottom: 50%;
+        padding-bottom: 30%;
       }
 
       .header__headline {
         font-size: 8vw;
+        width: 50vw;
       }
 
       .header__img {
         top: -15vh;
         right: -4vh;
-        width: 40vw;
+        width: 30vw;
       }
 
       .main__item {
@@ -219,51 +156,16 @@
         margin: 12vh 0 12vh 15vw;
         text-align: justify;
       }
-
-      .main__portfolio {
-        font-size: 2vw;
-        margin: 12vh 0;
-        padding-bottom: 5vh;
-      }
-
-      .main__portfolio:before {
-        width: 65vw;
-        right: inherit;
-        left: 0;
-      }
-
-      .main__portfolio:after {
-        right: inherit;
-        left: 65vw;
-        height: 100%;
-      }
-
-      .portfolio-list {
-        width: 56vw;
-      }
-
-      .aside {
-        font-size: 2vw;
-        margin: 12vh 0 30vh 15vw;
-        text-align: justify;
-      }
     }
 
     @media (min-width: 80em) {
-      .address {
-        font-size: 1.2vw; 
-      }
-
       .header {
-        margin-top: 27vh;
-      }
-
-      .header__img {
-        top: -20vh;
+        margin-top: 25vh;
       }
 
       .main {
         width: 70vw;
+        margin-bottom: 40vh;
       }
     }
 
@@ -275,18 +177,8 @@
 
   <div class="layout">
 
-    <div class="address">
-      <ul class="address-list">
-        <li>Freie Lektorin</li>
-        <li>Grindelallee 87, 20146 Hamburg</li>
-        <li>+49 152 269 423 62 - <a href="mailto:info@maria-mair.com">info@maria-mair.com</a></li>
-      </ul>
-    </div>
-
     <header class="header">
-      <h1 class="header__headline">
-        <a class="link" href="#maria">Maria Mair</a>
-      </h1>
+      <h1 class="header__headline">Lektorin Maria Mair</h1>
       <img class="header__img" src="img/maria-portrait.jpg" alt="Portrait-Bild von Maria Mair" />
     </header>
 
@@ -294,49 +186,21 @@
 
       <div class="main__item">
         <h2>Lektorat</h2>
-        <p>Ich suche nach guten Geschichten und nach jenen, die sie erzählen können. Die Faszination für Sprache und ihren Möglichkeiten treibt mich an: Wie gelangen besondere Erfahrungen, Ideen, Bilder auf Buchseiten und dann auch noch zu den Leser:innen? Als Zuarbeiterin, Korrektorin, Motivatorin und Gedankenordnerin stehe ich den jenen bei, die sich dieser Aufgabe stellen.</p>
-        <p>Neben dem literarischen Lektorat widme ich gerne und kompetent auch Fachtexten und dem Sachbuch.</p>
+        <p>Neben der Arbeit am Text gemeinsam mit Autor*innen oder Übersetzer*innen ist meine große Leidenschaft das Stöbern nach neuen Romanen, die den Horizont erweitern und an die Öffentlichkeit sollten sowie nach alten Romanen, die es sich auszahlt, wieder neu zu entdecken. Dabei brenne ich sowohl für literarische Texte als für gut gemachte Unterhaltung — ausschlaggebend ist, dass der*die Autor*in etwas mitzuteilen hat und die Sprache bedacht und gekonnt einzusetzen weiß.</p>
+        <p>Nach einem Volontariat in einer Literaturagentur und mehr als drei Jahren im Lektorat bei Hoffmann und Campe, bin ich bei HarperCollins als Leitende Lektorin für die Programme Ecco, Nagel und Kimche, Ecco und das HarperCollins Hardcover tätig.</p>
       </div>
 
       <div class="main__item">
-        <h2>Korrektorat</h2>
-        <p>Regelmäßig mache ich mich auf die Suche nach Flüchtigkeitsfehlern, Verständnisfallen und grammatikalischen Fehltritten. Ich korrigiere und redigiere Texte schnell und zuverlässig.</p>
+        <h2>Über mich</h2>
+        <p>Geboren und aufgewachsen in der zweisprachigen norditalienischen Region Südtirol, bin ich nach dem Abitur nach Wien gezogen, wo ich Germanistik und Vergleichende Literaturwissenschaft mit den Nebenfächern Kunstgeschichte und Theater-Film und Medienwissenschaften studiert habe.</p>
+        <p>Fünf Jahre später ging es weiter in den Norden nach Hamburg, wo der Master in Deutschsprachige Literaturen folgte. Wenn ich gerade nicht lese, findet man mich auf den Hamburger Fahrradwegen, an Kletterwänden, auf Konzerten, in Kino- und Theatersälen oder der Kneipe nebenan.</p>
       </div>
 
       <div class="main__item">
-        <h2>Übersetzung</h2>
-        <p>Ich spreche, lese und schreibe fließend Italienisch und Englisch und kann so auch bei Übersetzungsfragen beistehen und Übersetzungen in die deutsche Zielsprache übernehmen.</p>
-        <hr />
-        <p>Honorar auf <a href="mailto:info@maria-mair.com">Anfrage</a>. Die Kosten variieren nach Textform und Anforderung und orientieren sich an den Vorgaben des Verbands der freien Lektorinnen und Lektoren (VFLL).</p>
-      </div>
-
-      <div class="main__portfolio">
-        <h3>Portfolio</h3>
-        <ul class="portfolio-list">
-          <li><strong>Lektorin</strong> Belletristik und Sachbuch bei <a href="http://www.hoffmann-und-campe.de/" target="_blank" rel="noreferrer noopener">Hoffmann und Campe</a></li>
-          <li><strong>Volontariat im Lektorat </strong>bei <a href="http://www.hoffmann-und-campe.de/" target="_blank" rel="noreferrer noopener">Hoffmann und Campe</a> im Bereich Belletristik und Sachbuch</li>
-          <li><strong>Rechtemanagement</strong> in der Literaturagentur <a href="http://arrowsmith-agency.com/">Arrowsmith Agency</a></li>
-          <li><strong>Lektorat <strong>und</strong></strong> <strong>Stilistische R</strong><strong>edaktion </strong>für den Carlsen Verlag</li>
-          <li><strong>Übersetzung </strong>aus dem Italienischen für <a href="https://www.guj.de/" target="_blank" rel="noreferrer noopener">Gruner + Jahr</a></li>
-          <li><strong>Korrektorat</strong> für verschiedene Agenturen</li>
-          <li><strong>Korrektorat</strong> für die <a href="https://www.raetia.com/de" target="_blank" rel="noreferrer noopener">Edition Raetia</a></li>
-          <li><strong>Korrektorat</strong> für die Technische Universität Wien</li>
-          <li><strong>Lektorat</strong> für die feministische Online-Plattform <a href="http://trustthegirls.org/2017/03/angezogen-und-angelogen/" target="_blank" rel="noreferrer noopener">TRUST THE GIRLS</a></li>
-          <li>Allgemeines <strong>Verlagspraktikum</strong> bei <a href="https://edition-nautilus.de/" target="_blank" rel="noreferrer noopener">Edition Nautilus</a></li>
-          <li><strong>Recherche- und Produktions-Assistenz</strong> für die Regisseurin Nathalie Borgers im Rahmen des Dokumentarfilms <a href="http://dok.at/film/fang-den-haider/" target="_blank" rel="noreferrer noopener">Fang den Haider</a> (2016), inklusive Praktikum bei der Produktionsfirma <a href="http://www.kurtmayerfilm.com/" target="_blank" rel="noreferrer noopener">kurt mayer film</a></li>
-          <li>Leitung eines <strong>Lesezirkels</strong> bei <a href="https://www.facebook.com/femrep-eV-505556146451031/" target="_blank" rel="noreferrer noopener">femrep e.V.</a> - Verein zur solidarischen Vernetzung und branchenübergreifenden Förderung von Frauen* in Hamburg</li>
-        </ul>
+        <p>Kontakt: <a href="mailto:info@maria-mair.com">info@maria-mair.com</a></p>
       </div>
 
     </main>
-
-    <aside class="aside" id="maria">
-
-      <h3>Über mich</h3>
-      <p>Geboren und aufgewachsen in der zweisprachigen norditalienischen Region Südtirol, bin ich 2008 nach Wien gezogen, wo ich Germanistik und Vergleichende Literaturwissenschaft mit den Nebenfächern Kunstgeschichte und Theater-Film und Medienwissenschaften studiert habe.</p>
-      <p>Fünf Jahre später hat es mich mit meinen Büchern nach Hamburg gezogen, wo der Master in Deutschsprachige Literaturen mit Schwerpunkt Neuere Deutsche Literatur folgte. Wenn ich gerade nicht lese, findet man mich auf Hamburger Fahrradwegen, an Kletterwänden, auf Konzerten, in Kino- und Theatersälen oder der Kneipe nebenan.</p>
-    
-    </aside>
 
   </div>
 
